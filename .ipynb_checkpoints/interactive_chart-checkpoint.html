@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D3.js Interactive Chart</title>
+    <style>
+      .bar {
+        fill: steelblue;
+        cursor: pointer;
+      }
+      .bar.clicked {
+        fill: orange;
+      }
+    </style>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <body>
+    <div id="chart"></div>
+
+    <script>
+      function createChart(data) {
+        var width = 500;
+        var height = 300;
+        var margin = { top: 20, right: 30, bottom: 40, left: 40 };
+
+        var svg = d3
+          .select("#chart")
+          .append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        var x = d3
+          .scaleBand()
+          .domain(
+            data.map(function (d) {
+              return d.Category;
+            })
+          )
+          .range([0, width])
+          .padding(0.1);
+
+        var y = d3
+          .scaleLinear()
+          .domain([
+            0,
+            d3.max(data, function (d) {
+              return d.Value;
+            }),
+          ])
+          .nice()
+          .range([height, 0]);
+
+        svg
+          .append("g")
+          .attr("class", "x-axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(x));
+
+        svg.append("g").attr("class", "y-axis").call(d3.axisLeft(y));
+
+        var bars = svg
+          .selectAll(".bar")
+          .data(data)
+          .enter()
+          .append("rect")
+          .attr("class", "bar")
+          .attr("x", function (d) {
+            return x(d.Category);
+          })
+          .attr("y", function (d) {
+            return y(d.Value);
+          })
+          .attr("width", x.bandwidth())
+          .attr("height", function (d) {
+            return height - y(d.Value);
+          })
+          .on("click", function (event, d) {
+            d.Value += 10;
+            d3.select(this)
+              .attr("y", y(d.Value))
+              .attr("height", height - y(d.Value))
+              .classed("clicked", true);
+            updateYAxis();
+          });
+
+        function updateYAxis() {
+          y.domain([
+            0,
+            d3.max(data, function (d) {
+              return d.Value;
+            }),
+          ]).nice();
+          svg.select(".y-axis").transition().duration(500).call(d3.axisLeft(y));
+        }
+      }
+    </script>
+  </body>
+</html>
+
+<!-- <script>
+  fetch("data.json")
+    .then((r) => r.json())
+    .then((data) => {
+      createChart(data);
+    });
+</script> -->
