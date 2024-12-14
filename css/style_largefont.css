@@ -1,0 +1,151 @@
+/* General Styles */
+body,
+svg {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-size: 1rem; /* Using relative units for better scaling */
+}
+
+h1,
+h2 {
+  margin: 0;
+  padding: 5px 0;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 1.25rem; /* Adjusted for modern typography */
+}
+
+h2 {
+  font-size: 1.125rem;
+  float: left;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px; /* Add spacing between tables */
+}
+
+td,
+th {
+  padding: 8px; /* Consistent padding */
+  border-bottom: 1px solid #ddd; /* Optional for better table readability */
+}
+
+.dataTable th {
+  text-align: left;
+  font-weight: 500;
+}
+
+.dataTable thead th,
+.dataTable tfoot th,
+.dataTable tbody th,
+.dataTable tbody td {
+  padding: 8px;
+}
+
+.dataTable tbody tr {
+  height: 40px;
+}
+
+/* Header and Navigation */
+#navigation {
+  padding: 10px;
+}
+
+#navigationHeader {
+  width: 100%;
+  overflow: hidden;
+}
+
+#buttonPanel {
+  padding: 10px;
+  display: flex; /* Improved layout */
+}
+
+.navigationRow {
+  white-space: nowrap;
+}
+
+/* Styling for Elements */
+.preview {
+  margin: 5px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.preview:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.divSelected {
+  box-shadow: 0 0 8px rgba(255, 230, 153, 0.8);
+}
+
+/* Interactive Elements */
+#selectionBar svg {
+  cursor: pointer;
+}
+
+/* Inactive/Active List Items */
+.inactiveListItem {
+  opacity: 0.5;
+}
+
+.activeListItem {
+  opacity: 1;
+}
+
+/* Table Hover Effects */
+table.dataTable tbody tr.selected,
+table.dataTable.hover tbody tr:hover.selected,
+table.dataTable.display tbody tr:hover.selected {
+  background-color: #ffe6b3; /* Slightly darker for better visibility */
+}
+
+table.dataTable.hover tbody tr:hover,
+table.dataTable.display tbody tr:hover {
+  background-color: #fff5d6; /* Light highlight */
+}
+
+/* Footer */
+.footer {
+  font-size: 0.75rem;
+  color: #555;
+}
+
+/* SVG Elements */
+.diffTimelineBar:hover,
+.degreeBar:hover {
+  stroke: #333;
+  transition: stroke 0.3s ease-in-out; /* Smooth transition */
+}
+
+.degreeBarNormal {
+  fill: #888;
+}
+
+.degreeBarDim {
+  fill: #e0e0e0;
+}
+
+.degreeBarSelected {
+  stroke: #333;
+  stroke-width: 1px;
+  fill: #888;
+}
+
+.barClicked {
+  stroke: #333;
+}
