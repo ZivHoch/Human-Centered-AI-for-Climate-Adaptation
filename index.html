@@ -85,23 +85,23 @@
         <div id="header">
           <!-- <a href="tutorial.html" class="pageLinks" target="_blank"> <span class="glyphicon glyphicon-blackboard"></span>Tutorial </a> -->
           <div id="title" class="pageLinks">
-            <img src="images/logo.png" />
+            <img src="images/logo.png" alt="Streams logo" />
             <span>Multi-Objective Visual Analytics to Develop Sustainable Adaptation Pathways</span>
           </div>
           <div id="dataset">
             <br />
-            <!-- <div> -->
-            <!-- <label>Select Dataset:</label> -->
-            <!-- <select id="datasetDropDown"></select> -->
-            <!-- <i class="icon icon-info-sign" title="Dataset information" onclick="datasetSelection.toggleDataSetInformation()"></i> -->
-            <!-- </div> -->
+            <div>
+              <label>Select Number for the binning:</label>
+              <select id="datasetDropDown"></select>
+              <i class="icon icon-info-sign" title="Dataset information" onclick="datasetSelection.toggleDataSetInformation()"></i>
+            </div>
             <div></div>
           </div>
-          <div style="font-size: 10pt">
+          <div class="datasetStats">
             <label>Dataset Statistics:</label>
             <span class="stats"># base sets = <span id="numSets"></span></span>
             <span class="stats"># elements = <span id="numObjects"></span></span>
-            <span class="stats"># timesteps = <span id="numTimesteps"></span></span>
+            <span class="stats"># timestamps = <span id="numTimesteps"></span></span>
             <span class="stats"># intersections = <span id="numIntersections"></span></span>
             <span>
               <!-- Agarwal, S. and Beck, F. (2020), Set Streams: Visual Exploration of Dynamic Overlapping Sets. Computer Graphics Forum, 39: 383-391. -->
@@ -146,7 +146,7 @@
               <div class="coloredDivBar groupB groupLegendDiv"></div>
               <span id="countB" class="groupCount">: 0</span>
             </div>
-            <div style="border-bottom: #636363 1px solid"></div>
+            <!-- <div style="border-bottom: #636363 1px solid"></div> -->
             <table id="listExample"></table>
           </div>
         </div>
@@ -156,10 +156,6 @@
     <!-- Footer -->
     <div class="footer">
       <div>
-        <div class="col-sm-2">
-          <a href="https://www.uni-due.de/de/impressum.shtml" target="_blank" class="secondLine">Imprint</a>
-          <a href="https://www.uni-due.de/de/datenschutz.php" target="_blank" style="margin-left: 16px" class="secondLine">Data Privacy</a>
-        </div>
         <div class="col-sm-8">Best viewed in Google Chrome at 1920 x 1280 resolution</div>
       </div>
     </div>
