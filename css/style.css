@@ -1,5 +1,4 @@
 /* general */
-
 :root {
   --borderColor: #636363;
   --borderStyle: 1px solid var(--borderColor);
@@ -656,4 +655,8 @@ rect.hbart2 {
 }
 .setMatrixComponentLine {
   pointer-events: none;
+}
+
+.datasetStats {
+  font-size: 10pt;
 }
