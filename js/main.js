@@ -13,20 +13,19 @@ const datasetSelection = (function () {
       currentLoadedDatasetIndex = 0;
       this.currentId = Object.keys(window.datasets)[0];
       window.currentDatasetId = this.currentId;
-      // const datasetDropDown = $("#datasetDropDown");
-
-      // Object.keys(window.datasets).forEach((datasetId) => {
-      //   dataset = window.datasets[datasetId];
-      //   datasetDropDown.append(
-      //     $(`<div class="dataset-option">
-      //         <input type="checkbox" id="checkbox_${datasetId}" value="${datasetId}">
-      //         <label for="checkbox_${datasetId}">${dataset.name}</label>
-      //       </div>`)
-      //   );
-      //   datasetDropDown.append($(`<option value="${datasetId}">${dataset.name}</option>`));
-      // });
-
-      // Ensure the datasets are properly iterated
+      const datasetDropDown = $("#datasetDropDown");
+      datasetDropDown.append($(`<option value="1">bin for every year</option>`));
+      for (let i = 2; i <= 13; i++) {
+        const option = $(`<option value="${i}">bin for every ${i} years</option>`);
+        if (i === 4) {
+          option.attr("selected", "selected"); // Set default value to 4
+        }
+        datasetDropDown.append(option);
+      }
+      datasetDropDown.on("change", (e) => {
+        const selectedValue = e.target.value; // Access the selected value
+        visObject = DynaSet().loadHarcodedDatasetFromJavascriptObject(this.currentId, selectedValue);
+      });
       const arr = [];
 
       // Use Object.keys to iterate over datasets
@@ -75,8 +74,9 @@ const datasetSelection = (function () {
         lineup.on("selectionChanged", (selectedIndices) => {
           if (selectedIndices.length > 0) {
             const selectedRow = arr[selectedIndices[0]];
+            const selectedValue = $("#datasetDropDown").val();
             this.currentId = selectedRow.name;
-            visObject = DynaSet().loadHarcodedDatasetFromJavascriptObject(this.currentId);
+            visObject = DynaSet().loadHarcodedDatasetFromJavascriptObject(this.currentId, selectedValue);
           } else {
             console.log("No dataset selected.");
           }
@@ -85,7 +85,7 @@ const datasetSelection = (function () {
         console.error("LineUpJS container not found.");
       }
 
-      visObject = DynaSet().loadHarcodedDatasetFromJavascriptObject(this.currentId);
+      visObject = DynaSet().loadHarcodedDatasetFromJavascriptObject(this.currentId, 4);
       // const timestepLabels = $(".timestepLabel");
       // // datasetDropDown.on("change", function () {
       // //   datasetSelection.currentId = datasetDropDown.val();

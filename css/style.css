@@ -218,10 +218,32 @@ i {
 }
 
 /* Main visualization */
+#WrapForScroll {
+  width: 100%; /* Or any desired width */
+  height: 500px; /* Adjust to your visualization height */
+  overflow-x: scroll; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Prevent vertical scrolling */
+  border: 1px solid #ccc;
+}
+
+.scrollable-frame {
+  width: 5300px; /* A large width for the frame */
+  height: 100%; /* Match the height of the main container */
+  position: relative;
+}
+
+.visualization-content {
+  width: 100%; /* Same as the scrollable frame */
+  height: 100%; /* Match the frame height */
+}
 
 #mainVisualization {
-  overflow-y: scroll;
-  overflow-x: hidden;
+  width: 100%; /* Or any desired width */
+  height: 500px; /* Adjust to your visualization height */
+  overflow-x: scroll; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Prevent vertical scrolling */
+  border: 1px solid #ccc;
+  position: relative;
 }
 
 #mainVisualization path {

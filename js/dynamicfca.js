@@ -23,7 +23,7 @@ function DynaSet() {
   window.filenames = [];
   var weightThreshold;
   visParams = {
-    conceptWidth: 2000,
+    conceptWidth: 5000,
     conceptMargin: 10,
     dummyWidth: 5,
     dummyMargin: 3,
@@ -33,10 +33,10 @@ function DynaSet() {
 
   /* public functions */
 
-  vis.loadHarcodedDatasetFromJavascriptObject = function (datasetId) {
+  vis.loadHarcodedDatasetFromJavascriptObject = function (datasetId, versionNumber) {
     window.edgeThicknessScale = undefined;
     window.selectedTimestepForSorting = undefined;
-    const dataset = window.datasets[datasetId].data;
+    const dataset = window.datasets[datasetId].data[versionNumber];
     if (datasetSelection.currentLoadedDatasetIndex == 7) window.paperDetailsPresent = true;
     else window.paperDetailsPresent = false;
 
@@ -98,17 +98,11 @@ function DynaSet() {
         window.timeLineDataForObjects = calculateObjectTimelineData(aggregatedLattice);
         window.numObjectsOverTime = calculateObjectsOverTime(aggregatedLattice, lattices, versions);
         deconstructGui();
+
         let sum = 0; // Initialize the sum outside the loop
-        console.log("timeLineDataForObjects", timeLineDataForObjects);
-        for (let key in timeLineDataForObjects) {
-          if (timeLineDataForObjects.hasOwnProperty(key)) {
-            Object.values(timeLineDataForObjects[key]).forEach((x) => {
-              sum += x;
-            });
-            // sum += timeLineDataForObjects[key]; // Add the current value to the sum
-            // console.log("Key:", key, "Value:", timeLineDataForObjects[key]); // Log the key and its value
-          }
-        }
+        Object.values(allObjectsInfo).forEach((e) => {
+          sum += e.weight;
+        });
 
         // console.log("Total Sum:", sum); // Log the total sum after the loop
 
@@ -1008,7 +1002,7 @@ function DynaSet() {
     var maxConceptsInTimestep = Object.keys(verticalPosition).length;
 
     var numTimesteps = window.inputRawData.length;
-    var widthOfOneZone = (width - rightPadding) / (numTimesteps + 1);
+    var widthOfOneZone = 294; //(width - rightPadding) / (numTimesteps + 1);
 
     var heightOfEachRow = [];
     var sortedVerticalPositions = [];
@@ -2575,8 +2569,7 @@ function DynaSet() {
     var objectArray = []; // AB, A, B, Objectid
     for (var i = 0; i < objectIdArray.length; i++) {
       var d = objectIdArray[i];
-      var dWeight = allObjectsInfo[d].weight[0];
-
+      var dWeight = allObjectsInfo[d].weight;
       var AB = 0,
         A = 0,
         B = 0;
