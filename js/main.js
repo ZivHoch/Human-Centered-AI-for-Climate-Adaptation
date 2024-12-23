@@ -24,7 +24,7 @@ const datasetSelection = (function () {
       }
       datasetDropDown.on("change", (e) => {
         const selectedValue = e.target.value; // Access the selected value
-        visObject = DynaSet().loadHarcodedDatasetFromJavascriptObject(this.currentId, selectedValue);
+        this.refresh(this.currentId, selectedValue);
       });
       const arr = [];
 
@@ -76,7 +76,7 @@ const datasetSelection = (function () {
             const selectedRow = arr[selectedIndices[0]];
             const selectedValue = $("#datasetDropDown").val();
             this.currentId = selectedRow.name;
-            visObject = DynaSet().loadHarcodedDatasetFromJavascriptObject(this.currentId, selectedValue);
+            this.refresh(this.currentId, selectedValue);
           } else {
             console.log("No dataset selected.");
           }
@@ -84,25 +84,18 @@ const datasetSelection = (function () {
       } else {
         console.error("LineUpJS container not found.");
       }
-
-      visObject = DynaSet().loadHarcodedDatasetFromJavascriptObject(this.currentId, 4);
-      // const timestepLabels = $(".timestepLabel");
-      // // datasetDropDown.on("change", function () {
-      // //   datasetSelection.currentId = datasetDropDown.val();
-      // //   window.currentDatasetId = datasetSelection.currentId;
-      // //   visObject.loadHarcodedDatasetFromJavascriptObject(datasetSelection.currentId);
-      // //   selectionPanel.init();
-      // // });
-
-      // timestepLabels.on("click", function (e) {
-      //   // var timestepIndex = parseInt($(this).attr('timestepIndex'));
-      //   // visObject = DynaSet().loadHarcodedDatasetFromJavascriptObject(datasetSelection.currentId, timestepIndex);
-      //   // visObject.computeGraphLayout(timestepIndex);
-      // });
+      this.refresh(this.currentId, 4);
     },
 
     toggleDataSetInformation: function () {
       $("#id01").toggle();
+    },
+    refresh: function (id, ver) {
+      visObject = DynaSet().loadHarcodedDatasetFromJavascriptObject(id, ver);
+      selectionPanel.init();
+      document.querySelector("#countA").textContent = ": 0";
+      document.querySelector("#countB").textContent = ": 0";
+      document.querySelector("#countAB").textContent = ": 0";
     },
   };
 })();
