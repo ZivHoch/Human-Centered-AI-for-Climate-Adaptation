@@ -2767,7 +2767,7 @@
                 return t.prototype.on.call(this, e, n);
               }),
               (e.prototype.getWidth = function () {
-                return this.width;
+                return Math.max("200", this.width); //Change this in order to change the width of all the columns (setting the min width to be 200)
               }),
               (e.prototype.hide = function () {
                 this.setVisible(!1);
@@ -3538,7 +3538,7 @@
           xe = "le",
           Me = Number.parseInt(ve("lu_engine_resize_space", "50px"), 10),
           Le = Number.parseInt(ve("lu_engine_resize_animation_duration", "1000ms"), 10),
-          Ie = Number.parseInt(ve("lu_aggregate_level_width", "22px"), 10);
+          Ie = Number.parseInt(ve("lu_aggregate_level_width", "75px"), 10);
         function Ve(t) {
           return t ? "".concat(De, "-").concat(t) : De;
         }
@@ -5000,7 +5000,7 @@
           };
         })();
         function bn(t) {
-          return void 0 === t && (t = "Rank"), { type: "rank", label: t };
+          return void 0 === t && (t = "ID"), { type: "rank", label: t }; // Changed the column name from "Rank" to "ID"
         }
         var En = (function (t) {
           function e(e, n) {

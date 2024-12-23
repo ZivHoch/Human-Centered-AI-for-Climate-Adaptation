@@ -1548,7 +1548,7 @@ span.lu-mapping-hint:last-of-type {
 .lu-renderer-rank {
   text-align: right;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center; //flex-end;
   font-variant-numeric: tabular-nums;
   align-items: center;
 }
@@ -1642,7 +1642,8 @@ span.lu-mapping-hint:last-of-type {
   justify-content: flex-end;
   text-align: right;
 }
-.lu-center {
+.lu-center,
+.lu-right {
   justify-content: center;
   text-align: left;
 }
