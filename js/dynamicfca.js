@@ -131,7 +131,6 @@ function DynaSet() {
 
     return this;
   };
-  console.log("check here vis.updateQuery");
 
   vis.updateQuery = function (group, operator, sets, timestep, degree) {
     if (sets.length > 0 || operator == "k-set intersections") {
