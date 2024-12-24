@@ -131,6 +131,7 @@ function DynaSet() {
 
     return this;
   };
+  console.log("check here vis.updateQuery");
 
   vis.updateQuery = function (group, operator, sets, timestep, degree) {
     if (sets.length > 0 || operator == "k-set intersections") {
@@ -978,10 +979,11 @@ function DynaSet() {
       posToNameForBaseSetsDictionary[pos] = sethashandNameDict[tempConceptHash];
     }
     window.setNameToHashDictionary = {};
+    window.invertedSetNameToHashDictionary = {};
     for (var hash in sethashandNameDict) {
       setNameToHashDictionary[sethashandNameDict[hash]] = hash;
     }
-
+    invertedSetNameToHashDictionary = Object.fromEntries(Object.entries(setNameToHashDictionary).map(([key, value]) => [value, key]));
     for (var concept in verticalPosition) {
       if (!(concept in window.hashToBinaryDictionary)) {
         var tempName = sethashandNameDict[concept];
@@ -1184,6 +1186,7 @@ function DynaSet() {
             else return "true";
           },
         })
+        // left table
         .on("click", function () {
           var curElement = d3.select(this);
           var deg = +curElement.attr("degree");
@@ -1275,6 +1278,7 @@ function DynaSet() {
         })
         .text(setName)
         .attr("transform", "rotate(-50," + (x + 12) + "," + fixedY + ")")
+        //left table
         .on("click", function () {
           var setid = parseInt(d3.select(this).attr("setid"));
           window.sortBy = "set_priority";
@@ -1455,17 +1459,23 @@ function DynaSet() {
     //  draw Degree Distribution
     var degreeDistributionRow = svg.append("g");
     window.degreeDistributionPerTimeStep = {};
-
+    window.infraDistributionPerTimeStep = {};
     var maxObjectsInAnyDegree = -1;
     for (var i = 0; i < inputRawData.length; i++) {
       degreeDistributionPerTimeStep[i] = {};
-
+      infraDistributionPerTimeStep[i] = {};
       for (var set in inputRawData[i]) {
         if (!(set === "added" || set === "removed")) {
           var tempDeg = inputRawData[i][set].degree;
           num = 0;
           // var num = inputRawData[i][set].exclusive.length;
           inputRawData[i][set].exclusive.forEach((x) => (num += x.weight));
+          if (set in infraDistributionPerTimeStep[i]) {
+            infraDistributionPerTimeStep[i][set].count += num;
+            infraDistributionPerTimeStep[i][set].objects.push(inputRawData[i][set].exclusive);
+          } else {
+            infraDistributionPerTimeStep[i][set] = { count: num, objects: copy(inputRawData[i][set].exclusive) };
+          }
           if (tempDeg in degreeDistributionPerTimeStep[i]) {
             degreeDistributionPerTimeStep[i][tempDeg].count += num;
             degreeDistributionPerTimeStep[i][tempDeg].objects.push(inputRawData[i][set].exclusive);
@@ -1482,7 +1492,13 @@ function DynaSet() {
         if (degreeDistributionPerTimeStep[i][deg].count > maxObjectsInAnyDegree) maxObjectsInAnyDegree = degreeDistributionPerTimeStep[i][deg].count;
       }
     }
-    var xscale = d3.scale.ordinal().domain(Object.keys(degreeDictionary));
+    infraArr = {};
+    Object.values(degreeDictionary).forEach((x) => {
+      x.forEach((j) => {
+        infraArr[j] = j;
+      });
+    });
+    var xscale = d3.scale.ordinal().domain(Object.keys(infraArr));
 
     var extendWidthEachSideBy = widthOfNode / 4;
 
@@ -1491,46 +1507,133 @@ function DynaSet() {
         [i * widthOfOneZone + widthOfOneZone / 2 - extendWidthEachSideBy, i * widthOfOneZone + widthOfOneZone / 2 + widthOfNode + extendWidthEachSideBy],
         0.5
       );
+      var sum = 0;
+      Object.values(infraDistributionPerTimeStep[i]).forEach((x) => {
+        sum += x.count;
+      });
+      console.log("infraDistributionPerTimeStep", sum);
+
       // console.log("maxObjectsInAnyDegree", maxObjectsInAnyDegree, "heightOfDegreeDistributionBox", heightOfDegreeDistributionBox);
-      var yscale = d3.scale.linear().domain([0, maxObjectsInAnyDegree]).range([0, heightOfDegreeDistributionBox]);
-      for (var deg in degreeDistributionPerTimeStep[i]) {
+      var yscale = d3.scale.linear().domain([0, sum]).range([0, heightOfDegreeDistributionBox]);
+      // for (var deg in degreeDistributionPerTimeStep[i]) {
+      //   degreeDistributionRow.append("rect").attr({
+      //     x: function () {
+      //       return xscale(deg);
+      //     },
+      //     y: topPadding + heightOfDegreeDistributionBox - yscale(degreeDistributionPerTimeStep[i][deg].count),
+      //     width: xscale.rangeBand(),
+      //     height: function () {
+      //       return yscale(degreeDistributionPerTimeStep[i][deg].count);
+      //     },
+      //     fill: "grey",
+      //   });
+
+      //   degreeDistributionRow
+      //     .append("rect")
+      //     .attr({
+      //       x: function () {
+      //         return xscale(deg);
+      //       },
+      //       y: topPadding,
+      //       width: xscale.rangeBand(),
+      //       height: heightOfDegreeDistributionBox,
+      //       fill: "none",
+      //       class: "hoverOverlayDegree",
+      //       // "class": "hoverOverlay",
+      //       timestep: i,
+      //       degree: deg,
+      //     })
+      //     .on("click", function () {
+      //       var degree = parseInt(d3.select(this).attr("degree"));
+      //       var timestep = parseInt(d3.select(this).attr("timestep"));
+      //       selectionPanel.select("k-set intersections", getContainedBaseSetsFromSetId(undefined), vis.getTimesteps()[timestep], degree);
+      //     })
+      //     .append("title")
+      //     .text(function () {
+      //       var wt = degreeDistributionPerTimeStep[i][deg].count;
+      //       if (wt == 1) return wt + " simulation in exclusive " + deg + "-set intersections";
+      //       else return wt + " simulations in exclusive " + deg + "-set intersections";
+      //     });
+      // }
+      for (var infra in infraDistributionPerTimeStep[i]) {
+        // Draw the bar for the count of elements with this infra
         degreeDistributionRow.append("rect").attr({
           x: function () {
-            return xscale(deg);
+            return xscale(infra); // X-coordinate based on infra
           },
-          y: topPadding + heightOfDegreeDistributionBox - yscale(degreeDistributionPerTimeStep[i][deg].count),
-          width: xscale.rangeBand(),
+          y: topPadding + heightOfDegreeDistributionBox - yscale(infraDistributionPerTimeStep[i][infra].count), // Y-coordinate
+          width: xscale.rangeBand(), // Width of the bar
           height: function () {
-            return yscale(degreeDistributionPerTimeStep[i][deg].count);
+            return yscale(infraDistributionPerTimeStep[i][infra].count); // Height proportional to the count
           },
-          fill: "grey",
+          fill: "grey", // Color of the bar
         });
 
+        // Add hoverable overlay for interaction
         degreeDistributionRow
           .append("rect")
           .attr({
             x: function () {
-              return xscale(deg);
+              return xscale(infra); // Same x-coordinate as the bar
             },
-            y: topPadding,
-            width: xscale.rangeBand(),
-            height: heightOfDegreeDistributionBox,
-            fill: "none",
-            class: "hoverOverlayDegree",
-            // "class": "hoverOverlay",
-            timestep: i,
-            degree: deg,
+            y: topPadding, // Overlay starts from the top
+            width: xscale.rangeBand(), // Same width as the bar
+            height: heightOfDegreeDistributionBox, // Covers the entire height
+            fill: "none", // Invisible overlay
+            class: "hoverOverlayDegree", //"hoverOverlayInfra", // Class for interaction
+            timestep: i, // Custom attribute for the time step
+            infra: infra, // Custom attribute for the infra
           })
           .on("click", function () {
-            var degree = parseInt(d3.select(this).attr("degree"));
+            // Retrieve custom attributes
+            var infra = d3.select(this).attr("infra");
+            var infraNameArr = invertedSetNameToHashDictionary[infra].split(",");
+            if (infraNameArr.length > 1) {
+              infraNameArr.pop();
+            }
             var timestep = parseInt(d3.select(this).attr("timestep"));
-            selectionPanel.select("k-set intersections", getContainedBaseSetsFromSetId(undefined), vis.getTimesteps()[timestep], degree);
+            if (infraNameArr.length == 1) {
+              selectionPanel.select("exclusive intersection", getContainedBaseSetsFromSetId(infra), vis.getTimesteps()[timestep], 1);
+            } else {
+              selectionPanel.select("intersection", infraNameArr, vis.getTimesteps()[timestep], infraNameArr.length);
+            }
+
+            // Log for debugging
+            console.log("Clicked infra:", infra, "at timestep:", timestep);
+
+            // Call selectionPanel with appropriate arguments
           })
           .append("title")
           .text(function () {
-            var wt = degreeDistributionPerTimeStep[i][deg].count;
-            if (wt == 1) return wt + " simulation in exclusive " + deg + "-set intersections";
-            else return wt + " simulations in exclusive " + deg + "-set intersections";
+            var count = infraDistributionPerTimeStep[i][infra].count; // Get the count of simulations
+            var finalInfraName = "";
+            var infraName = invertedSetNameToHashDictionary[infra]; // Retrieve infrastructure name
+            var infraNameArr = infraName.split(",");
+
+            // Handle multiple infra names by removing the last one if necessary
+            if (infraNameArr.length > 1) {
+              infraNameArr.pop(); // Remove the last element if there are multiple infra names
+
+              // Build the final infrastructure name string with "or" between each infra
+              finalInfraName = "s "; // Indicating multiple infra names
+              infraNameArr.forEach((infra, index) => {
+                if (index === 0) {
+                  finalInfraName += "#" + String(infra); // First element
+                } else {
+                  finalInfraName += " or #" + String(infra); // Subsequent elements
+                }
+              });
+            } else if (infraNameArr.length === 1) {
+              finalInfraName = " #" + String(infraNameArr[0]); // Single infrastructure name
+            }
+
+            console.log(finalInfraName);
+
+            // Determine singular/plural based on the count
+            var simulationText = count === 1 ? "simulation" : "simulations";
+
+            // Return the formatted string with the count and infrastructure name
+            return `${count} ${simulationText} activated infrastructure${finalInfraName}`;
           });
       }
       degreeDistributionRow.append("rect").attr({
@@ -2104,11 +2207,21 @@ function DynaSet() {
           return d.class + " hoverOverlay";
         },
       })
+      //timestamp rectangle (down)
       .on("click", function (d) {
+        var infraNameArr = invertedSetNameToHashDictionary[d.setid].split(",");
+        if (infraNameArr.length > 1) {
+          infraNameArr.pop();
+        }
         if (d.nodeId.charAt(2) == "N") {
-          selectionPanel.select("exclusive intersection", getContainedBaseSetsFromSetId(d.setid), vis.getTimesteps()[d.timestep], 1);
+          if (infraNameArr.length > 1) {
+            selectionPanel.select("intersection", infraNameArr, vis.getTimesteps()[d.timestep], infraNameArr.length);
+          } else {
+            selectionPanel.select("exclusive intersection", getContainedBaseSetsFromSetId(d.setid), vis.getTimesteps()[d.timestep], 1);
+          }
         } else if (d.nodeId.charAt(2) == "D") {
-          selectionPanel.select("k-set intersections", getContainedBaseSetsFromSetId(d.setid), vis.getTimesteps()[d.timestep], d.degree);
+          console.log("d.setid", d.setid, "d.degree", d.degree);
+          selectionPanel.select("intersection", getContainedBaseSetsFromSetId(d.setid), vis.getTimesteps()[d.timestep], d.degree);
         }
       })
       .on("mouseenter", function (d) {
@@ -2653,6 +2766,7 @@ function DynaSet() {
 
           return classList;
         })
+        // right table
         .on("click", function (dataitem) {
           var d = dataitem[3];
           $("#highlightedElement").html("");
@@ -2953,9 +3067,8 @@ function DynaSet() {
         highlightRectsBasedOnPosition(x, y);
         // d3.select("#"+d.id).attr("stroke", "black");
       })
+      // edges
       .on("click", function (d) {
-        // console.log(d);
-
         var fromType = "",
           totype = "";
         var from = "",
