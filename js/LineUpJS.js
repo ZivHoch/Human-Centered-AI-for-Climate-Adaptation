@@ -2767,7 +2767,17 @@
                 return t.prototype.on.call(this, e, n);
               }),
               (e.prototype.getWidth = function () {
-                return Math.max("200", this.width); //Change this in order to change the width of all the columns (setting the min width to be 200)
+                const header = document.querySelector(".le-header");
+                const thead = header.querySelector(".le-thead");
+                var numColumn = thead.childNodes.length;
+                // Calculate the available width for columns
+                const containerWidth = header.offsetWidth;
+                // Subtract any potential padding, margins, or borders (if applicable)
+                const totalSpacing = 10 * (numColumn - 2); // Adjust based on your spacing between columns
+                const availableWidth = containerWidth - totalSpacing;
+                // Set minimum width for each column
+                var minWidth = Math.floor(availableWidth / numColumn);
+                return Math.max(minWidth, this.width); //Change this in order to change the width of all the columns (setting the min width to be 200)
               }),
               (e.prototype.hide = function () {
                 this.setVisible(!1);

@@ -682,3 +682,21 @@ rect.hbart2 {
 .datasetStats {
   font-size: 10pt;
 }
+#lineupVisualization {
+  height: 100%; //676px;;
+}
+/* Main container grid */
+#main {
+  display: grid;
+  grid-template-columns: 10.5fr 1.5fr; /* 10.5/12 for leftPanel, 1.5/12 for rightPanel */
+  height: 100vh; /* Full viewport height */
+  gap: 1rem; /* Space between columns */
+}
+
+/* Left Panel layout */
+#leftPanel {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 1fr 1fr 7fr 7fr; /* Adjusted rows for better proportions */
+  gap: 0.5rem;
+}

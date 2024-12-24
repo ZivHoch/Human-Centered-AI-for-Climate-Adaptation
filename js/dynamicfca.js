@@ -1689,7 +1689,7 @@ function DynaSet() {
       window.edgeThicknessScale = d3.scale
         .linear()
         .domain([0, d3.max([maxEdgeWeight, maxNodeWeight])])
-        .range([0, maxHeightOfNode]);
+        .range([0, maxHeightOfNode / 2]);
     }
     var rearrangedEdges = reorderEdges(edges);
     var unArrangedEdges = copy(edges);
@@ -1718,7 +1718,7 @@ function DynaSet() {
       else wt = window.nodes[node].trueWeight;
       window.nodes[node].contentyBottom = window.nodes[node].y + maxHeightOfNode - edgeThicknessScale(wt);
       window.nodes[node].contentyCentre = window.nodes[node].y + (maxHeightOfNode - edgeThicknessScale(wt)) / 2;
-      window.nodes[node].contentWidth = widthOfNode;
+      window.nodes[node].contentWidth = widthOfNode / 2;
       window.nodes[node].y = window.nodes[node].contentyBottom;
       // window.nodes[node].y = window.nodes[node].contentyCentre;
       // console.log(window.nodes[node].yBoundary, window.nodes[node].contentyBottom, window.nodes[node].contentyCentre, window.nodes[node].y);
