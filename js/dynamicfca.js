@@ -1504,16 +1504,19 @@ function DynaSet() {
     for (var i = 0; i < inputRawData.length; i++) {
       xscale.rangeRoundBands(
         [i * widthOfOneZone + widthOfOneZone / 2 - extendWidthEachSideBy, i * widthOfOneZone + widthOfOneZone / 2 + widthOfNode + extendWidthEachSideBy],
-        0.5
-      );
+        0.3
+      ); // 0.5 -> 0.3
       var sum = 0;
       Object.values(infraDistributionPerTimeStep[i]).forEach((x) => {
         sum += x.count;
       });
       console.log("infraDistributionPerTimeStep", sum);
-
+      const marginFromTop = 5;
       // console.log("maxObjectsInAnyDegree", maxObjectsInAnyDegree, "heightOfDegreeDistributionBox", heightOfDegreeDistributionBox);
-      var yscale = d3.scale.linear().domain([0, sum]).range([0, heightOfDegreeDistributionBox]);
+      var yscale = d3.scale
+        .linear()
+        .domain([0, sum])
+        .range([0, heightOfDegreeDistributionBox + extendWidthEachSideBy]);
       // for (var deg in degreeDistributionPerTimeStep[i]) {
       //   degreeDistributionRow.append("rect").attr({
       //     x: function () {
@@ -1556,17 +1559,20 @@ function DynaSet() {
       // }
       for (var infra in infraDistributionPerTimeStep[i]) {
         // Draw the bar for the count of elements with this infra
-        degreeDistributionRow.append("rect").attr({
-          x: function () {
-            return xscale(infra); // X-coordinate based on infra
-          },
-          y: topPadding + heightOfDegreeDistributionBox - yscale(infraDistributionPerTimeStep[i][infra].count), // Y-coordinate
-          width: xscale.rangeBand(), // Width of the bar
-          height: function () {
-            return yscale(infraDistributionPerTimeStep[i][infra].count); // Height proportional to the count
-          },
-          fill: "grey", // Color of the bar
-        });
+        degreeDistributionRow
+          .append("rect")
+          .attr("class", "degree-bar")
+          .attr({
+            x: function () {
+              return xscale(infra); // X-coordinate based on infra
+            },
+            y: topPadding + heightOfDegreeDistributionBox - yscale(infraDistributionPerTimeStep[i][infra].count) + marginFromTop, // Y-coordinate
+            width: xscale.rangeBand(), // Width of the bar
+            height: function () {
+              return yscale(infraDistributionPerTimeStep[i][infra].count); // Height proportional to the count
+            },
+            fill: "#825", // Color of the bar
+          });
 
         // Add hoverable overlay for interaction
         degreeDistributionRow
@@ -1575,9 +1581,9 @@ function DynaSet() {
             x: function () {
               return xscale(infra); // Same x-coordinate as the bar
             },
-            y: topPadding, // Overlay starts from the top
+            y: topPadding - 7.5, // Overlay starts from the top
             width: xscale.rangeBand(), // Same width as the bar
-            height: heightOfDegreeDistributionBox, // Covers the entire height
+            height: heightOfDegreeDistributionBox + extendWidthEachSideBy, // Covers the entire height
             fill: "none", // Invisible overlay
             class: "hoverOverlayDegree", //"hoverOverlayInfra", // Class for interaction
             timestep: i, // Custom attribute for the time step
@@ -1596,11 +1602,6 @@ function DynaSet() {
             } else {
               selectionPanel.select("intersection", infraNameArr, vis.getTimesteps()[timestep], infraNameArr.length);
             }
-
-            // Log for debugging
-            console.log("Clicked infra:", infra, "at timestep:", timestep);
-
-            // Call selectionPanel with appropriate arguments
           })
           .append("title")
           .text(function () {
@@ -1626,8 +1627,6 @@ function DynaSet() {
               finalInfraName = " #" + String(infraNameArr[0]); // Single infrastructure name
             }
 
-            console.log(finalInfraName);
-
             // Determine singular/plural based on the count
             var simulationText = count === 1 ? "simulation" : "simulations";
 
@@ -1636,10 +1635,10 @@ function DynaSet() {
           });
       }
       degreeDistributionRow.append("rect").attr({
-        x: i * widthOfOneZone + widthOfOneZone / 2 - extendWidthEachSideBy,
-        y: topPadding,
-        width: widthOfNode + 2 * extendWidthEachSideBy,
-        height: heightOfDegreeDistributionBox,
+        x: i * widthOfOneZone + widthOfOneZone / 2 - 2 * extendWidthEachSideBy,
+        y: topPadding - extendWidthEachSideBy + marginFromTop,
+        width: widthOfNode + 4 * extendWidthEachSideBy,
+        height: heightOfDegreeDistributionBox + extendWidthEachSideBy,
         fill: "none",
         stroke: "black",
         "stroke-width": "0.5px",
@@ -1652,7 +1651,6 @@ function DynaSet() {
 
     for (var i = 0; i < inputRawData.length; i++) {
       var labelXpos = widthOfOneZone * i + widthOfOneZone / 2 + widthOfNode / 2;
-      // console.log(window.filenames[i]);
       var tlabel = timestepLabel
         .append("text")
         .text(function () {
