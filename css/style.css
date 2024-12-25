@@ -2,13 +2,13 @@
 :root {
   --borderColor: #636363;
   --borderStyle: 1px solid var(--borderColor);
-  --grid-spacing: 10px; //5px
+  --grid-spacing: 10px; /* 5px */
   --lightBgColor: #dddddd;
   --groupAColor: #ec6502;
   --groupBColor: #1a8e6a;
-  --groupABColor: #333333; //black
+  --groupABColor: #333333; /* black */
   --group0Color: #f9ba02;
-  --hoverColor: #ffc107; //#99afb38e
+  --hoverColor: #ffc107; /* #99afb38e */
   --primaryFont: "Roboto", sans-serif;
 }
 
@@ -44,7 +44,7 @@
 }
 
 #dataset {
-  padding-right: 15px; //10px
+  padding-right: 15px; /*10px*/
 }
 
 .pageLinks {
@@ -92,7 +92,7 @@
   border: var(--borderStyle);
   padding: 0.5px;
   overflow: auto;
-  resize: both;
+  /* resize: both; */
 }
 .lineUpContainer {
   width: 100%; /* Use full width of the parent container */
@@ -356,14 +356,10 @@ i {
 /* List of elements */
 
 #listExample {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  /* workaround TODO: replace by cleaner solution */
-  max-height: calc(100vh - 370px);
-}
-
-#listExample {
   display: grid;
+  overflow-y: scroll;
+  /* workaround TODO: replace by cleaner solution */
+  max-height: calc(100vh - 400px);
 }
 
 .coloredDivBar {
@@ -412,7 +408,6 @@ i {
   cursor: pointer;
   box-sizing: border-box;
   height: 25px;
-  padding: 2px;
 }
 
 #listExample .firstColumn {
@@ -724,7 +719,7 @@ rect.hbart2 {
   font-size: 10pt;
 }
 #lineupVisualization {
-  height: 100%; //676px;;
+  height: 100%; /*676px;*/
 }
 /* Main container grid */
 #main {

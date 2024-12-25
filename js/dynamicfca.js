@@ -2672,6 +2672,9 @@ function DynaSet() {
     var table = d3.select("#listExample");
 
     var objectIdArray = Object.keys(allObjectsInfo);
+    d3.select(".borderDiv").style("max-height", `${objectIdArray.length * 25}px`);
+    d3.select(".borderDiv").style("overflow-y", "auto");
+
     var countA = 0,
       countB = 0,
       countAB = 0;
