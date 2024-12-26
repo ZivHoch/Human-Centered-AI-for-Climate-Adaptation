@@ -20,6 +20,7 @@ function DynaSet() {
     defaultSorting: "degree",
     setMatrixEndX: 200,
   };
+  const pathColor = "rgb(16, 43, 165)";
   window.filenames = [];
   var weightThreshold;
   visParams = {
@@ -99,7 +100,7 @@ function DynaSet() {
         window.numObjectsOverTime = calculateObjectsOverTime(aggregatedLattice, lattices, versions);
         deconstructGui();
 
-        let sum = 0; // Initialize the sum outside the loop
+        let sum = 0;
         Object.values(allObjectsInfo).forEach((e) => {
           sum += e.weight;
         });
@@ -1348,14 +1349,14 @@ function DynaSet() {
           }
         });
 
-      // rowLegend.append("rect").attr({
-      //     "x": -(leftPadding+leftSpaceForDegreeGroup),
-      //     "y": highlightYPos,
-      //     "width": guiParams.setMatrixEndX,
-      //     "height": verticalPositionRowHeight[pos][0] + additionalHeight,
-      //     "fill":"lightgray",
-      //     "opacity":guiParams.highlightOpacity
-      // });
+      rowLegend.append("rect").attr({
+        x: -(leftPadding + leftSpaceForDegreeGroup),
+        y: highlightYPos,
+        width: guiParams.setMatrixEndX,
+        height: verticalPositionRowHeight[pos][0] + additionalHeight,
+        fill: "lightgray",
+        opacity: guiParams.highlightOpacity,
+      });
       rowLegend.append("line").attr({
         x1: -(leftPadding + leftSpaceForDegreeGroup),
         y1: highlightYPos,
@@ -1571,7 +1572,7 @@ function DynaSet() {
             height: function () {
               return yscale(infraDistributionPerTimeStep[i][infra].count); // Height proportional to the count
             },
-            fill: "#825", // Color of the bar
+            fill: pathColor, // Color of the bar
           });
 
         // Add hoverable overlay for interaction
@@ -2053,7 +2054,10 @@ function DynaSet() {
       var nodehash = node.substr(3, node.length);
       var wt = 0;
       var h = 0;
-
+      let sum = 0;
+      Object.values(allObjectsInfo).forEach((e) => {
+        sum += e.weight;
+      });
       var classOfNode = "";
       if (nodehash === "added") classOfNode += "addedNode ";
       else if (nodehash === "removed") classOfNode += "removedNode ";
@@ -2068,7 +2072,7 @@ function DynaSet() {
       }
 
       window.nodes[node]["height"] = h;
-      // window.nodes[node]["weight"] = wt;
+      window.nodes[node]["PortionWeight"] = wt / sum;
       window.nodes[node]["class"] = classOfNode;
     }
 
@@ -2132,7 +2136,8 @@ function DynaSet() {
         if (d.nodeId.charAt(2) == "N") return d.yBoundary;
         else {
           var hash = "Degree" + d.nodeId.charAt(3);
-          return d.y - (verticalPositionRowHeight[verticalPosition[hash]][0] - d.height);
+
+          return d.y - d.PortionWeight * verticalPositionRowHeight[verticalPosition[hash]][0];
         }
       },
       width: widthOfNode,
@@ -2146,8 +2151,8 @@ function DynaSet() {
       },
       // "fill": "none",
       fill: "#efe6e6",
-      opacity: 0.6,
-      // "stroke": "black",
+      opacity: 0.8,
+      stroke: pathColor,
       class: function (d) {
         return d.class;
       },
@@ -2161,11 +2166,18 @@ function DynaSet() {
         return d.x;
       },
       y: function (d) {
-        return d.y;
+        console.log("d.y", d.y);
+        console.log("(verticalPositionRowHeight[verticalPosition[hash]][0] - d.height)", verticalPositionRowHeight[verticalPosition[hash]][0] - d.height);
+        console.log(
+          "d.PortionWeight * verticalPositionRowHeight[verticalPosition[hash]][0]",
+          d.PortionWeight * verticalPositionRowHeight[verticalPosition[hash]][0]
+        );
+
+        return d.y - (d.PortionWeight * verticalPositionRowHeight[verticalPosition[hash]][0] - d.height);
       },
       width: widthOfNode,
       height: function (d) {
-        return d.height;
+        return d.PortionWeight * verticalPositionRowHeight[verticalPosition[hash]][0];
       },
       class: function (d) {
         return "node " + d.class;
@@ -2252,8 +2264,13 @@ function DynaSet() {
       })
       .append("title")
       .text(function (d) {
-        if (d.weight == 1) return d.weight + " simulation";
-        else return d.weight + " simulations";
+        let sum = 0;
+        Object.values(allObjectsInfo).forEach((e) => {
+          sum += e.weight;
+        });
+
+        if (d.weight == 1) return `${d.weight} simulation (${((d.weight / sum) * 100).toFixed(2)}%)`;
+        return `${d.weight} simulation (${((d.weight / sum) * 100).toFixed(2)}%)`;
       });
 
     graphGroup.attr("transform", "translate(" + (leftPadding + ksetGroupWidth - widthOfOneZone / 4) + ",0)");

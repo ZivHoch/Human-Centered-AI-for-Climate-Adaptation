@@ -2777,7 +2777,7 @@
                 const availableWidth = containerWidth - totalSpacing;
                 // Set minimum width for each column
                 var minWidth = Math.floor(availableWidth / numColumn);
-                return Math.max(minWidth, this.width); //Change this in order to change the width of all the columns (setting the min width to be 200)
+                return Math.max(minWidth, this.width) - 9; //Change this in order to change the width of all the columns (setting the min width to be 200)
               }),
               (e.prototype.hide = function () {
                 this.setVisible(!1);
