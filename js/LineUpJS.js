@@ -2769,15 +2769,26 @@
               (e.prototype.getWidth = function () {
                 const header = document.querySelector(".le-header");
                 const thead = header.querySelector(".le-thead");
-                var numColumn = thead.childNodes.length;
+                var numColumn = thead.childNodes.length - 4;
                 // Calculate the available width for columns
-                const containerWidth = header.offsetWidth;
+                const containerWidth = header.offsetWidth - 209;
                 // Subtract any potential padding, margins, or borders (if applicable)
-                const totalSpacing = 10 * (numColumn - 2); // Adjust based on your spacing between columns
+                const totalSpacing = 10 * numColumn; // Adjust based on your spacing between columns
                 const availableWidth = containerWidth - totalSpacing;
                 // Set minimum width for each column
                 var minWidth = Math.floor(availableWidth / numColumn);
-                return Math.max(minWidth, this.width) - 9; //Change this in order to change the width of all the columns (setting the min width to be 200)
+                switch (this.uid) {
+                  case "col0":
+                    return 29;
+                  case "col1":
+                    return 50;
+                  case "col2":
+                    return this.width;
+                  case "col3":
+                    return 80;
+                  default:
+                    return Math.max(minWidth, this.width) - 10;
+                }
               }),
               (e.prototype.hide = function () {
                 this.setVisible(!1);
@@ -3583,7 +3594,7 @@
             };
           })();
         function Fe(t) {
-          return void 0 === t && (t = "Aggregate Groups"), { type: "aggregate", label: t, fixed: !0 };
+          return void 0 === t && (t = "Groups"), { type: "aggregate", label: t, fixed: !0 };
         }
         !(function (t) {
           (t.COLLAPSE = "collapse"), (t.EXPAND = "expand"), (t.EXPAND_TOP_N = "expand_top");
@@ -5071,7 +5082,7 @@
           };
         })();
         function Cn(t) {
-          return void 0 === t && (t = "Selections"), { type: "selection", label: t };
+          return void 0 === t && (t = " "), { type: "selection", label: t };
         }
         var Tn = (function (t) {
           function e(e, n) {

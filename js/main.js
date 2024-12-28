@@ -1,18 +1,19 @@
 window.onload = function () {
   datasetSelection.init();
   selectionPanel.init();
+  LineUpSelection.init();
 };
 
 const datasetSelection = (function () {
   return {
-    // TODO: replace index by id
     currentLoadedDatasetIndex: 0,
     currentId: "",
 
     init: function () {
-      currentLoadedDatasetIndex = 0;
+      this.currentLoadedDatasetIndex = 0;
       this.currentId = Object.keys(window.datasets)[0];
       window.currentDatasetId = this.currentId;
+
       const datasetDropDown = $("#datasetDropDown");
       datasetDropDown.append($(`<option value="1">bin for every year</option>`));
       for (let i = 2; i <= 13; i++) {
@@ -26,70 +27,14 @@ const datasetSelection = (function () {
         const selectedValue = e.target.value; // Access the selected value
         this.refresh(this.currentId, selectedValue);
       });
-      const arr = [];
 
-      // Use Object.keys to iterate over datasets
-      if (window.datasets && typeof window.datasets === "object") {
-        for (const dataset of Object.keys(window.datasets)) {
-          const temp = [Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100];
-          const min = Math.min(...temp);
-          const max = Math.max(...temp);
-          arr.push({
-            name: dataset,
-            Objective_1: temp[0],
-            Objective_2: temp[1],
-            Objective_3: temp[2],
-            Objective_4: temp[3],
-          });
-        }
-      } else {
-        console.error("window.datasets is not a valid object.");
-      }
-
-      // Ensure the container exists for LineUpJS visualization
-      const lineupContainer = document.getElementById("lineupVisualization");
-
-      if (lineupContainer) {
-        // Create LineUpJS builder
-        const builder = LineUpJS.builder(arr);
-
-        // Define columns dynamically
-        builder
-          .column(LineUpJS.buildStringColumn("name").label("Name").width(150))
-          .column(LineUpJS.buildNumberColumn("Objective_1", [0, 100]).label("First Objective").color("green").width(150))
-          .column(LineUpJS.buildNumberColumn("Objective_2", [0, 100]).label("Second Objective").color("blue").width(150))
-          .column(LineUpJS.buildNumberColumn("Objective_3", [0, 100]).label("Third Objective").color("orange").width(150))
-          .column(LineUpJS.buildNumberColumn("Objective_4", [0, 100]).label("Fourth Objective").color("purple").width(150));
-
-        // Define ranking
-        const ranking = LineUpJS.buildRanking().sortBy("name", "asc"); // Sort rows by 'name' in ascending order
-
-        // Set default ranking
-        builder.defaultRanking(ranking);
-
-        // Build LineUp visualization
-        const lineup = builder.buildTaggle(lineupContainer);
-
-        // Listen to selection events
-        lineup.on("selectionChanged", (selectedIndices) => {
-          if (selectedIndices.length > 0) {
-            const selectedRow = arr[selectedIndices[0]];
-            const selectedValue = $("#datasetDropDown").val();
-            this.currentId = selectedRow.name;
-            this.refresh(this.currentId, selectedValue);
-          } else {
-            console.log("No dataset selected.");
-          }
-        });
-      } else {
-        console.error("LineUpJS container not found.");
-      }
       this.refresh(this.currentId, 4);
     },
 
     toggleDataSetInformation: function () {
       $("#id01").toggle();
     },
+
     refresh: function (id, ver) {
       visObject = DynaSet().loadHarcodedDatasetFromJavascriptObject(id, ver);
       selectionPanel.init();
@@ -99,56 +44,7 @@ const datasetSelection = (function () {
     },
   };
 })();
-// const datasetSelection = (function () {
-//   return {
-//     currentLoadedDatasetIndex: 0,
-//     currentId: "",
 
-//     init: function () {
-//       this.currentId = Object.keys(window.datasets)[0];
-//       window.currentDatasetId = this.currentId;
-//       const datasetDropDown = $("#datasetDropDown");
-
-//       // Clear any existing content
-//       datasetDropDown.html("");
-
-//       // Add checkboxes and options
-//       Object.keys(window.datasets).forEach((datasetId) => {
-//         const dataset = window.datasets[datasetId];
-//         const optionElement = $(`
-//             <div class="dataset-option">
-//               <input type="checkbox" id="checkbox_${datasetId}" value="${datasetId}">
-//               <label for="checkbox_${datasetId}">${dataset.name}</label>
-//             </div>
-//           `);
-//         datasetDropDown.append(optionElement);
-//       });
-
-//       // Load the first dataset by default
-//       visObject = DynaSet().loadHarcodedDatasetFromJavascriptObject(this.currentId);
-
-//       // Add change event listener for checkboxes
-//       datasetDropDown.on("change", "input[type='checkbox']", function () {
-//         const selectedDatasets = [];
-//         datasetDropDown.find("input[type='checkbox']:checked").each(function () {
-//           selectedDatasets.push($(this).val());
-//         });
-
-//         // For simplicity, use the first selected dataset to load
-//         if (selectedDatasets.length > 0) {
-//           datasetSelection.currentId = selectedDatasets[0];
-//           window.currentDatasetId = datasetSelection.currentId;
-//           visObject.loadHarcodedDatasetFromJavascriptObject(datasetSelection.currentId);
-//           selectionPanel.init();
-//         }
-//       });
-//     },
-
-//     toggleDataSetInformation: function () {
-//       $("#id01").toggle();
-//     },
-//   };
-// })();
 const selectionPanel = (function () {
   function initGroupSelection(group) {
     const selectionDiv = $(`#selection${group}`);
@@ -336,6 +232,91 @@ const selectionPanel = (function () {
       if ("B" in window.selectedGroups) {
         $(`#selectionB .groupB`).text("Group B: # " + countB);
         $("#countB").text(": " + countB);
+      }
+    },
+  };
+})();
+
+const LineUpSelection = (function () {
+  return {
+    init: function () {
+      const arr = [];
+      const globalMinMax = {};
+
+      // Iterate over each path in the data
+      for (const path in window.datasets) {
+        const results = window.datasets[path].results;
+        for (const key in results) {
+          const value = results[key];
+          // Update global min and max for each key
+          if (!globalMinMax[key]) {
+            globalMinMax[key] = { min: value, max: value };
+          } else {
+            globalMinMax[key].min = Math.min(globalMinMax[key].min, value);
+            globalMinMax[key].max = Math.max(globalMinMax[key].max, value);
+          }
+        }
+      }
+
+      // Use Object.keys to iterate over datasets
+      if (window.datasets && typeof window.datasets === "object") {
+        for (const dataset of Object.keys(window.datasets)) {
+          arr.push({
+            name: dataset,
+            Objective_1: window.datasets[dataset].results["O_REL"],
+            Objective_2: window.datasets[dataset].results["O_RF"],
+            Objective_3: window.datasets[dataset].results["O_NPC"],
+            Objective_4: window.datasets[dataset].results["O_PFC"],
+            Objective_5: window.datasets[dataset].results["O_WCC"],
+            Objective_6: window.datasets[dataset].results["O_UC"],
+          });
+        }
+      } else {
+        console.error("window.datasets is not a valid object.");
+      }
+
+      // Ensure the container exists for LineUpJS visualization
+      const lineupContainer = document.getElementById("lineupVisualization");
+
+      if (lineupContainer) {
+        // Create LineUpJS builder
+        const builder = LineUpJS.builder(arr);
+        const colorTable = ["blue", "green", "red", "orange", "purple", "yellow", "cyan", "magenta", "pink", "brown"];
+
+        // Define columns dynamically
+        builder
+          .column(LineUpJS.buildStringColumn("name").label("Path #").width(80))
+          .column(LineUpJS.buildNumberColumn("Objective_1", [globalMinMax["O_REL"].min, globalMinMax["O_REL"].max]).label("Reliability").color("blue"))
+          .column(LineUpJS.buildNumberColumn("Objective_2", [globalMinMax["O_RF"].min, globalMinMax["O_RF"].max]).label("Restriction Frequency").color("green"))
+          .column(LineUpJS.buildNumberColumn("Objective_3", [globalMinMax["O_NPC"].min, globalMinMax["O_NPC"].max]).label("Net Present Cost").color("red"))
+          .column(
+            LineUpJS.buildNumberColumn("Objective_4", [globalMinMax["O_PFC"].min, globalMinMax["O_PFC"].max]).label("Peak Financial Cost").color("orange")
+          )
+          .column(LineUpJS.buildNumberColumn("Objective_5", [globalMinMax["O_WCC"].min, globalMinMax["O_WCC"].max]).label("Worst Case Costs").color("purple"))
+          .column(LineUpJS.buildNumberColumn("Objective_6", [globalMinMax["O_UC"].min, globalMinMax["O_UC"].max]).label("Unit Cost").color("magenta"));
+
+        // Define ranking
+        const ranking = LineUpJS.buildRanking().sortBy("name", "asc"); // Sort rows by 'name' in ascending order
+
+        // Set default ranking
+        builder.defaultRanking(ranking);
+
+        // Build LineUp visualization
+        const lineup = builder.buildTaggle(lineupContainer);
+
+        // Listen to selection events
+        lineup.on("selectionChanged", (selectedIndices) => {
+          if (selectedIndices.length > 0) {
+            const selectedRow = arr[selectedIndices[0]];
+            const selectedValue = $("#datasetDropDown").val();
+            datasetSelection.currentId = selectedRow.name;
+            datasetSelection.refresh(datasetSelection.currentId, selectedValue);
+          } else {
+            console.log("No dataset selected.");
+          }
+        });
+      } else {
+        console.error("LineUpJS container not found.");
       }
     },
   };

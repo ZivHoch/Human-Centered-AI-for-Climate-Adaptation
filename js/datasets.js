@@ -3,6 +3,7 @@ window.datasets = {
     name: "Pathway 0",
     description: "All the simulation of Pathway 0",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.997, O_RF: 0.0, O_NPC: 14.503102, O_PFC: 0.074635, O_WCC: 0.0, O_UC: 0.250024 },
     data: [
       [
         {
@@ -481,6 +482,7 @@ window.datasets = {
     name: "Pathway 1",
     description: "All the simulation of Pathway 1",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.997, O_RF: 0.000867, O_NPC: 16.719214, O_PFC: 0.150591, O_WCC: 0.0, O_UC: 248.502732 },
     data: [
       [
         { "27's - 27's": ",Path 1 {135}&&&12,1,&&&" },
@@ -585,6 +587,7 @@ window.datasets = {
     name: "Pathway 2",
     description: "All the simulation of Pathway 2",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 52.261567, O_PFC: 0.349552, O_WCC: 0.0, O_UC: 532.182404 },
     data: [
       [
         { "17's - 17's": ",Path 2 {343}&&&20,1,&&&" },
@@ -855,6 +858,7 @@ window.datasets = {
     name: "Pathway 3",
     description: "All the simulation of Pathway 3",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.997, O_RF: 0.0, O_NPC: 7.129626, O_PFC: 0.042397, O_WCC: 0.0, O_UC: 0.089366 },
     data: [
       [
         { "15's - 15's": ",Path 3 {840}&&&20,1,&&&" },
@@ -1298,6 +1302,7 @@ window.datasets = {
     name: "Pathway 4",
     description: "All the simulation of Pathway 4",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.996, O_RF: 0.000778, O_NPC: 24.303545, O_PFC: 0.19459, O_WCC: 0.0, O_UC: 0.326663 },
     data: [
       [
         { "19's - 19's": ",Path 4 {21}&&&20,3,&&&" },
@@ -1447,6 +1452,7 @@ window.datasets = {
     name: "Pathway 5",
     description: "All the simulation of Pathway 5",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 44.478392, O_PFC: 0.293699, O_WCC: 0.0, O_UC: 12.419406 },
     data: [
       [
         {
@@ -1955,6 +1961,7 @@ window.datasets = {
     name: "Pathway 6",
     description: "All the simulation of Pathway 6",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.997, O_RF: 0.0, O_NPC: 26.417759, O_PFC: 0.181634, O_WCC: 0.004616, O_UC: 0.216564 },
     data: [
       [
         { "18's - 18's": ",Path 6 {21}&&&20,5,&&&" },
@@ -2306,6 +2313,7 @@ window.datasets = {
     name: "Pathway 7",
     description: "All the simulation of Pathway 7",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.997, O_RF: 0.000711, O_NPC: 20.647314, O_PFC: 0.167795, O_WCC: 0.0, O_UC: 175.314025 },
     data: [
       [
         { "29's - 29's": ",Path 7 {692}&&&12,1,&&&" },
@@ -2393,6 +2401,7 @@ window.datasets = {
     name: "Pathway 8",
     description: "All the simulation of Pathway 8",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.998, O_RF: 0.0, O_NPC: 23.21917, O_PFC: 0.157876, O_WCC: 0.0, O_UC: 0.400685 },
     data: [
       [
         { "29's - 29's": ",Path 8 {877}&&&12,1,&&&" },
@@ -2485,6 +2494,7 @@ window.datasets = {
     name: "Pathway 9",
     description: "All the simulation of Pathway 9",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 52.380126, O_PFC: 0.308013, O_WCC: 0.0, O_UC: 1.127045 },
     data: [
       [
         { "18's - 18's": ",Path 9 {949}&&&20,1,&&&" },
@@ -2863,6 +2873,7 @@ window.datasets = {
     name: "Pathway 10",
     description: "All the simulation of Pathway 10",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 76.617269, O_PFC: 0.401239, O_WCC: 0.0, O_UC: 76.416762 },
     data: [
       [
         { "16's - 16's": ",Path 10 {587},Path 10 {469},Path 10 {840},Path 10 {722},Path 10 {354},Path 10 {136},Path 10 {21}&&&20,1,1,1,1,1,2,3,&&&" },
@@ -3291,6 +3302,7 @@ window.datasets = {
     name: "Pathway 11",
     description: "All the simulation of Pathway 11",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.987, O_RF: 0.0, O_NPC: 30.407475, O_PFC: 0.115369, O_WCC: 0.033986, O_UC: 91.268145 },
     data: [
       [
         { "28's - 28's": ",Path 11 {551},Path 11 {603}&&&9,1,2,&&&" },
@@ -3395,6 +3407,7 @@ window.datasets = {
     name: "Pathway 13",
     description: "All the simulation of Pathway 13",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.985, O_RF: 0.001911, O_NPC: 7.047221, O_PFC: 0.049567, O_WCC: 0.0, O_UC: 0.123571 },
     data: [
       [
         { "24's - 24's": ",Path 13 {206}&&&9,2,&&&" },
@@ -3596,6 +3609,7 @@ window.datasets = {
     name: "Pathway 14",
     description: "All the simulation of Pathway 14",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.984, O_RF: 0.0, O_NPC: 16.662313, O_PFC: 0.154394, O_WCC: 0.0, O_UC: 0.140005 },
     data: [
       [
         { "23's - 23's": ",Path 14 {206}&&&12,1,&&&" },
@@ -3861,6 +3875,7 @@ window.datasets = {
     name: "Pathway 15",
     description: "All the simulation of Pathway 15",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 43.523021, O_PFC: 0.186643, O_WCC: 0.0, O_UC: 1.064939 },
     data: [
       [
         {
@@ -4332,6 +4347,7 @@ window.datasets = {
     name: "Pathway 16",
     description: "All the simulation of Pathway 16",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 27.499248, O_PFC: 0.117138, O_WCC: 0.0, O_UC: 0.609918 },
     data: [
       [
         {
@@ -4823,6 +4839,7 @@ window.datasets = {
     name: "Pathway 17",
     description: "All the simulation of Pathway 17",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 48.286852, O_PFC: 0.298225, O_WCC: 0.058522, O_UC: 1.131423 },
     data: [
       [
         { "17's - 17's": ",Path 17 {587},Path 17 {354},Path 17 {949},Path 17 {722},Path 17 {734},Path 17 {14},Path 17 {303}&&&20,1,1,1,1,1,2,1,&&&" },
@@ -5259,6 +5276,7 @@ window.datasets = {
     name: "Pathway 18",
     description: "All the simulation of Pathway 18",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 6.7e-5, O_NPC: 25.408447, O_PFC: 0.176517, O_WCC: 0.0, O_UC: 0.488291 },
     data: [
       [
         { "21's - 21's": ",Path 18 {413},Path 18 {840}&&&20,2,1,&&&" },
@@ -5579,6 +5597,7 @@ window.datasets = {
     name: "Pathway 19",
     description: "All the simulation of Pathway 19",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 64.658929, O_PFC: 0.296099, O_WCC: 0.0, O_UC: 21.628145 },
     data: [
       [
         { "26's - 26's": ",Path 19 {206}&&&9,1,&&&" },
@@ -5689,6 +5708,7 @@ window.datasets = {
     name: "Pathway 20",
     description: "All the simulation of Pathway 20",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 25.738118, O_PFC: 0.18083, O_WCC: 0.0, O_UC: 353.495883 },
     data: [
       [
         {
@@ -6021,6 +6041,7 @@ window.datasets = {
     name: "Pathway 21",
     description: "All the simulation of Pathway 21",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 51.119451, O_PFC: 0.320736, O_WCC: 0.0, O_UC: 1.313947 },
     data: [
       [
         { "14's - 14's": ",Path 21 {822},Path 21 {731},Path 21 {284}&&&20,1,1,1,&&&" },
@@ -6468,6 +6489,7 @@ window.datasets = {
     name: "Pathway 22",
     description: "All the simulation of Pathway 22",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 0.0, O_NPC: 16.867925, O_PFC: 0.145095, O_WCC: 0.0, O_UC: 0.25072 },
     data: [
       [
         {
@@ -6936,6 +6958,7 @@ window.datasets = {
     name: "Pathway 23",
     description: "All the simulation of Pathway 23",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 58.904012, O_PFC: 0.293345, O_WCC: 0.0, O_UC: 791.556783 },
     data: [
       [
         { "27's - 27's": ",Path 23 {206}&&&20,1,&&&" },
@@ -7044,6 +7067,7 @@ window.datasets = {
     name: "Pathway 24",
     description: "All the simulation of Pathway 24",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 49.884931, O_PFC: 0.26768, O_WCC: 0.0, O_UC: 1.414523 },
     data: [
       [
         { "17's - 17's": ",Path 24 {840}&&&20,1,&&&" },
@@ -7471,6 +7495,7 @@ window.datasets = {
     name: "Pathway 25",
     description: "All the simulation of Pathway 25",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 71.145705, O_PFC: 0.429079, O_WCC: 0.0, O_UC: 673.497286 },
     data: [
       [
         { "18's - 18's": ",Path 25 {21},Path 25 {206}&&&20,3,1,&&&" },
@@ -7845,6 +7870,7 @@ window.datasets = {
     name: "Pathway 26",
     description: "All the simulation of Pathway 26",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 48.908676, O_PFC: 0.243459, O_WCC: 0.0, O_UC: 1.40262 },
     data: [
       [
         {
@@ -8274,6 +8300,7 @@ window.datasets = {
     name: "Pathway 27",
     description: "All the simulation of Pathway 27",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.998, O_RF: 0.0, O_NPC: 50.688081, O_PFC: 0.213411, O_WCC: 0.0, O_UC: 0.81639 },
     data: [
       [{ "40's - 40's": ",Path 27 {272}&&&9,1,&&&" }, { "41's - 41's": ",Path 27 {206}&&&9,1,&&&" }, { "44's - 44's": ",Path 27 {412}&&&9,1,&&&" }],
       [{ "40's - 41's": ",Path 27 {206}&&&9,2,&&&" }, { "44's - 45's": ",Path 27 {412}&&&9,1,&&&" }],
@@ -8295,6 +8322,7 @@ window.datasets = {
     name: "Pathway 28",
     description: "All the simulation of Pathway 28",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 53.745479, O_PFC: 0.294726, O_WCC: 0.0, O_UC: 1.617439 },
     data: [
       [
         { "14's - 14's": ",Path 28 {840},Path 28 {21},Path 28 {949}&&&20,1,1,1,&&&" },
@@ -8748,6 +8776,7 @@ window.datasets = {
     name: "Pathway 29",
     description: "All the simulation of Pathway 29",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 5.326687, O_PFC: 0.080572, O_WCC: 0.0, O_UC: 9.41113 },
     data: [
       [
         { "15's - 15's": ",Path 29 {840}&&&20,1,&&&" },
@@ -9204,6 +9233,7 @@ window.datasets = {
     name: "Pathway 30",
     description: "All the simulation of Pathway 30",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 71.395343, O_PFC: 0.388679, O_WCC: 0.0, O_UC: 886.990854 },
     data: [
       [
         { "16's - 16's": ",Path 30 {840},Path 30 {949},Path 30 {21}&&&20,1,1,1,&&&" },
@@ -9638,6 +9668,7 @@ window.datasets = {
     name: "Pathway 31",
     description: "All the simulation of Pathway 31",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 68.331309, O_PFC: 0.319117, O_WCC: 0.0, O_UC: 7.567098 },
     data: [
       [
         { "14's - 14's": ",Path 31 {840},Path 31 {949}&&&20,1,1,&&&" },
@@ -10085,6 +10116,7 @@ window.datasets = {
     name: "Pathway 32",
     description: "All the simulation of Pathway 32",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.998, O_RF: 6.7e-5, O_NPC: 26.017635, O_PFC: 0.09876, O_WCC: 0.434226, O_UC: 0.296015 },
     data: [
       [
         { "27's - 27's": ",Path 32 {575},Path 32 {303},Path 32 {136},Path 32 {196}&&&12,1,1,6,9,&&&" },
@@ -10344,6 +10376,7 @@ window.datasets = {
     name: "Pathway 33",
     description: "All the simulation of Pathway 33",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 58.800257, O_PFC: 0.318816, O_WCC: 0.0, O_UC: 1.640038 },
     data: [
       [
         { "16's - 16's": ",Path 33 {840}&&&20,1,&&&" },
@@ -10769,6 +10802,7 @@ window.datasets = {
     name: "Pathway 34",
     description: "All the simulation of Pathway 34",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 76.923946, O_PFC: 0.36281, O_WCC: 0.0, O_UC: 100.661971 },
     data: [
       [
         { "16's - 16's": ",Path 34 {840},Path 34 {21}&&&20,1,1,&&&" },
@@ -11209,6 +11243,7 @@ window.datasets = {
     name: "Pathway 35",
     description: "All the simulation of Pathway 35",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.997, O_RF: 0.0, O_NPC: 82.956877, O_PFC: 0.425311, O_WCC: 0.0, O_UC: 1.449055 },
     data: [
       [
         { "18's - 18's": ",Path 35 {515},Path 35 {343}&&&20,1,2,&&&" },
@@ -11598,6 +11633,7 @@ window.datasets = {
     name: "Pathway 36",
     description: "All the simulation of Pathway 36",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 0.000689, O_NPC: 19.153376, O_PFC: 0.134157, O_WCC: 0.0, O_UC: 30.925864 },
     data: [
       [
         { "16's - 16's": ",Path 36 {840},Path 36 {949},Path 36 {21}&&&20,1,1,2,&&&" },
@@ -12047,6 +12083,7 @@ window.datasets = {
     name: "Pathway 37",
     description: "All the simulation of Pathway 37",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 52.676237, O_PFC: 0.267896, O_WCC: 0.0, O_UC: 1.104557 },
     data: [
       [
         { "15's - 15's": ",Path 37 {840},Path 37 {21}&&&20,1,1,&&&" },
@@ -12485,6 +12522,7 @@ window.datasets = {
     name: "Pathway 38",
     description: "All the simulation of Pathway 38",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 36.676323, O_PFC: 0.23792, O_WCC: 0.0, O_UC: 18.416566 },
     data: [
       [
         { "17's - 17's": ",Path 38 {840}&&&20,1,&&&" },
@@ -12903,6 +12941,7 @@ window.datasets = {
     name: "Pathway 39",
     description: "All the simulation of Pathway 39",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 92.567288, O_PFC: 0.510335, O_WCC: 0.0, O_UC: 1163.301387 },
     data: [
       [
         { "16's - 16's": ",Path 39 {840}&&&20,1,&&&" },
@@ -13343,6 +13382,7 @@ window.datasets = {
     name: "Pathway 40",
     description: "All the simulation of Pathway 40",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 30.422792, O_PFC: 0.221402, O_WCC: 0.0, O_UC: 0.784553 },
     data: [
       [
         {
@@ -13842,6 +13882,7 @@ window.datasets = {
     name: "Pathway 41",
     description: "All the simulation of Pathway 41",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 42.292642, O_PFC: 0.275749, O_WCC: 0.0, O_UC: 1.138202 },
     data: [
       [
         { "15's - 15's": ",Path 41 {840},Path 41 {949}&&&20,1,1,&&&" },
@@ -14298,6 +14339,7 @@ window.datasets = {
     name: "Pathway 42",
     description: "All the simulation of Pathway 42",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.998, O_RF: 2.2e-5, O_NPC: 44.484607, O_PFC: 0.283627, O_WCC: 0.0, O_UC: 1.012694 },
     data: [
       [
         {
@@ -14731,6 +14773,7 @@ window.datasets = {
     name: "Pathway 43",
     description: "All the simulation of Pathway 43",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 48.987405, O_PFC: 0.310646, O_WCC: 0.0, O_UC: 8.606271 },
     data: [
       [
         {
@@ -15232,6 +15275,7 @@ window.datasets = {
     name: "Pathway 44",
     description: "All the simulation of Pathway 44",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 43.66536, O_PFC: 0.233214, O_WCC: 0.0, O_UC: 53.266751 },
     data: [
       [
         {
@@ -15734,6 +15778,7 @@ window.datasets = {
     name: "Pathway 45",
     description: "All the simulation of Pathway 45",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 49.684629, O_PFC: 0.29163, O_WCC: 0.0, O_UC: 1.605826 },
     data: [
       [
         { "18's - 18's": ",Path 45 {306},Path 45 {949},Path 45 {840},Path 45 {107},Path 45 {21}&&&20,1,1,1,1,1,&&&" },
@@ -16111,6 +16156,7 @@ window.datasets = {
     name: "Pathway 46",
     description: "All the simulation of Pathway 46",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.998, O_RF: 0.003644, O_NPC: 51.018894, O_PFC: 0.25089, O_WCC: 0.0, O_UC: 373.334295 },
     data: [
       [
         { "18's - 18's": ",Path 46 {1}&&&20,2,&&&" },
@@ -16470,6 +16516,7 @@ window.datasets = {
     name: "Pathway 47",
     description: "All the simulation of Pathway 47",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.998, O_RF: 0.001022, O_NPC: 17.39083, O_PFC: 0.098911, O_WCC: 0.0, O_UC: 0.358533 },
     data: [
       [
         { "18's - 18's": ",Path 47 {390}&&&20,2,&&&" },
@@ -16802,6 +16849,7 @@ window.datasets = {
     name: "Pathway 48",
     description: "All the simulation of Pathway 48",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 45.032561, O_PFC: 0.204213, O_WCC: 0.0, O_UC: 59.446928 },
     data: [
       [
         { "13's - 13's": ",Path 48 {258}&&&20,1,&&&" },
@@ -17261,6 +17309,7 @@ window.datasets = {
     name: "Pathway 49",
     description: "All the simulation of Pathway 49",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 45.185063, O_PFC: 0.299712, O_WCC: 0.0, O_UC: 1.280521 },
     data: [
       [
         { "17's - 17's": ",Path 49 {469},Path 49 {587},Path 49 {840},Path 49 {21},Path 49 {293},Path 49 {136}&&&20,1,1,1,2,1,2,&&&" },
@@ -17673,6 +17722,7 @@ window.datasets = {
     name: "Pathway 50",
     description: "All the simulation of Pathway 50",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 0.000111, O_NPC: 64.951788, O_PFC: 0.288852, O_WCC: 0.0, O_UC: 479.64255 },
     data: [
       [
         { "18's - 18's": ",Path 50 {585},Path 50 {21}&&&20,1,7,&&&" },
@@ -18044,6 +18094,7 @@ window.datasets = {
     name: "Pathway 51",
     description: "All the simulation of Pathway 51",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 35.920517, O_PFC: 0.21262, O_WCC: 0.0, O_UC: 1.06407 },
     data: [
       [
         { "13's - 13's": ",Path 51 {0}&&&20,1,&&&" },
@@ -18500,6 +18551,7 @@ window.datasets = {
     name: "Pathway 52",
     description: "All the simulation of Pathway 52",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 43.388665, O_PFC: 0.239908, O_WCC: 0.0, O_UC: 1.056811 },
     data: [
       [
         {
@@ -18995,6 +19047,7 @@ window.datasets = {
     name: "Pathway 53",
     description: "All the simulation of Pathway 53",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 0.0, O_NPC: 71.514587, O_PFC: 0.382591, O_WCC: 0.0, O_UC: 1.389608 },
     data: [
       [
         { "20's - 20's": ",Path 53 {136}&&&20,1,&&&" },
@@ -19275,6 +19328,7 @@ window.datasets = {
     name: "Pathway 54",
     description: "All the simulation of Pathway 54",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 33.212961, O_PFC: 0.19654, O_WCC: 0.0, O_UC: 0.99564 },
     data: [
       [
         { "15's - 15's": ",Path 54 {840}&&&20,1,&&&" },
@@ -19731,6 +19785,7 @@ window.datasets = {
     name: "Pathway 55",
     description: "All the simulation of Pathway 55",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 29.859637, O_PFC: 0.146375, O_WCC: 0.0, O_UC: 0.75241 },
     data: [
       [
         { "14's - 14's": ",Path 55 {529},Path 55 {550}&&&20,1,1,&&&" },
@@ -20170,6 +20225,7 @@ window.datasets = {
     name: "Pathway 56",
     description: "All the simulation of Pathway 56",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.998, O_RF: 0.0, O_NPC: 13.951528, O_PFC: 0.144098, O_WCC: 0.060073, O_UC: 0.272361 },
     data: [
       [
         { "15's - 15's": ",Path 56 {840}&&&20,1,&&&" },
@@ -20629,6 +20685,7 @@ window.datasets = {
     name: "Pathway 57",
     description: "All the simulation of Pathway 57",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 27.810032, O_PFC: 0.203734, O_WCC: 0.0, O_UC: 28.491368 },
     data: [
       [
         {
@@ -21115,6 +21172,7 @@ window.datasets = {
     name: "Pathway 58",
     description: "All the simulation of Pathway 58",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 70.246052, O_PFC: 0.375046, O_WCC: 0.0, O_UC: 2.084067 },
     data: [
       [
         { "13's - 13's": ",Path 58 {0},Path 58 {742}&&&20,1,1,&&&" },
@@ -21556,6 +21614,7 @@ window.datasets = {
     name: "Pathway 59",
     description: "All the simulation of Pathway 59",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 0.344236, O_PFC: 0.00492, O_WCC: 0.0, O_UC: 0.010403 },
     data: [
       [
         {
@@ -22053,6 +22112,7 @@ window.datasets = {
     name: "Pathway 60",
     description: "All the simulation of Pathway 60",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.995, O_RF: 0.008978, O_NPC: 1.090281, O_PFC: 0.011785, O_WCC: 0.060299, O_UC: 0.022253 },
     data: [
       [
         { "23's - 23's": ",Path 60 {206}&&&20,1,&&&" },
@@ -22267,6 +22327,7 @@ window.datasets = {
     name: "Pathway 61",
     description: "All the simulation of Pathway 61",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 47.650169, O_PFC: 0.199537, O_WCC: 0.0, O_UC: 1.023544 },
     data: [
       [
         {
@@ -22759,6 +22820,7 @@ window.datasets = {
     name: "Pathway 62",
     description: "All the simulation of Pathway 62",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 0.0, O_NPC: 29.80612, O_PFC: 0.181666, O_WCC: 0.0, O_UC: 89.362381 },
     data: [
       [
         { "21's - 21's": ",Path 62 {136}&&&20,1,&&&" },
@@ -23075,6 +23137,7 @@ window.datasets = {
     name: "Pathway 63",
     description: "All the simulation of Pathway 63",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 2.2e-5, O_NPC: 58.296651, O_PFC: 0.266305, O_WCC: 0.0, O_UC: 1.516941 },
     data: [
       [
         { "14's - 14's": ",Path 63 {0},Path 63 {396},Path 63 {632}&&&20,2,2,1,&&&" },
@@ -23555,6 +23618,7 @@ window.datasets = {
     name: "Pathway 64",
     description: "All the simulation of Pathway 64",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 37.469202, O_PFC: 0.261644, O_WCC: 0.0, O_UC: 39.03109 },
     data: [
       [
         {
@@ -23950,6 +24014,7 @@ window.datasets = {
     name: "Pathway 65",
     description: "All the simulation of Pathway 65",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 50.811227, O_PFC: 0.273508, O_WCC: 0.110642, O_UC: 1.415141 },
     data: [
       [
         { "16's - 16's": ",Path 65 {840}&&&20,1,&&&" },
@@ -24384,6 +24449,7 @@ window.datasets = {
     name: "Pathway 66",
     description: "All the simulation of Pathway 66",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 44.591089, O_PFC: 0.197614, O_WCC: 0.0, O_UC: 47.800747 },
     data: [
       [
         {
@@ -24875,6 +24941,7 @@ window.datasets = {
     name: "Pathway 67",
     description: "All the simulation of Pathway 67",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 42.681206, O_PFC: 0.267588, O_WCC: 0.0, O_UC: 1.239976 },
     data: [
       [
         {
@@ -25377,6 +25444,7 @@ window.datasets = {
     name: "Pathway 68",
     description: "All the simulation of Pathway 68",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 83.927067, O_PFC: 0.400796, O_WCC: 0.0, O_UC: 2.012677 },
     data: [
       [
         { "18's - 18's": ",Path 68 {445}&&&20,1,&&&" },
@@ -25739,6 +25807,7 @@ window.datasets = {
     name: "Pathway 69",
     description: "All the simulation of Pathway 69",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 55.191688, O_PFC: 0.27197, O_WCC: 0.0, O_UC: 1.651465 },
     data: [
       [
         {
@@ -26201,6 +26270,7 @@ window.datasets = {
     name: "Pathway 70",
     description: "All the simulation of Pathway 70",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.060267, O_NPC: 44.282798, O_PFC: 0.263116, O_WCC: 0.024969, O_UC: 4.928864 },
     data: [
       [
         { "21's - 21's": ",Path 70 {515},Path 70 {840},Path 70 {136},Path 70 {206},Path 70 {949}&&&20,1,1,1,1,1,&&&" },
@@ -26515,6 +26585,7 @@ window.datasets = {
     name: "Pathway 71",
     description: "All the simulation of Pathway 71",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 0.0, O_NPC: 51.768, O_PFC: 0.339418, O_WCC: 0.0, O_UC: 0.983516 },
     data: [
       [
         { "19's - 19's": ",Path 71 {585},Path 71 {243}&&&20,1,1,&&&" },
@@ -26869,6 +26940,7 @@ window.datasets = {
     name: "Pathway 72",
     description: "All the simulation of Pathway 72",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 47.532973, O_PFC: 0.312815, O_WCC: 0.0, O_UC: 12.752816 },
     data: [
       [
         { "17's - 17's": ",Path 72 {575},Path 72 {469},Path 72 {972},Path 72 {753},Path 72 {14},Path 72 {206}&&&20,1,1,1,1,7,1,&&&" },
@@ -27281,6 +27353,7 @@ window.datasets = {
     name: "Pathway 73",
     description: "All the simulation of Pathway 73",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 0.0, O_NPC: 50.41571, O_PFC: 0.287349, O_WCC: 0.0, O_UC: 0.933674 },
     data: [
       [
         { "23's - 23's": ",Path 73 {807},Path 73 {949},Path 73 {136}&&&20,1,1,2,&&&" },
@@ -27567,6 +27640,7 @@ window.datasets = {
     name: "Pathway 74",
     description: "All the simulation of Pathway 74",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 52.161456, O_PFC: 0.249886, O_WCC: 0.0, O_UC: 10.192889 },
     data: [
       [
         {
@@ -28034,6 +28108,7 @@ window.datasets = {
     name: "Pathway 75",
     description: "All the simulation of Pathway 75",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 41.44529, O_PFC: 0.284712, O_WCC: 0.0, O_UC: 1.30876 },
     data: [
       [
         {
@@ -28508,6 +28583,7 @@ window.datasets = {
     name: "Pathway 76",
     description: "All the simulation of Pathway 76",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 41.352805, O_PFC: 0.250893, O_WCC: 0.0, O_UC: 0.904908 },
     data: [
       [
         { "19's - 19's": ",Path 76 {293}&&&20,1,&&&" },
@@ -28887,6 +28963,7 @@ window.datasets = {
     name: "Pathway 77",
     description: "All the simulation of Pathway 77",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 29.619869, O_PFC: 0.244231, O_WCC: 0.0, O_UC: 403.828742 },
     data: [
       [
         { "20's - 20's": ",Path 77 {0},Path 77 {413},Path 77 {840},Path 77 {807},Path 77 {136},Path 77 {949}&&&20,7,2,1,1,2,1,&&&" },
@@ -29216,6 +29293,7 @@ window.datasets = {
     name: "Pathway 78",
     description: "All the simulation of Pathway 78",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 62.687904, O_PFC: 0.385395, O_WCC: 0.0, O_UC: 68.59611 },
     data: [
       [
         { "16's - 16's": ",Path 78 {419},Path 78 {838},Path 78 {840},Path 78 {21},Path 78 {18}&&&20,1,1,2,2,1,&&&" },
@@ -29665,6 +29743,7 @@ window.datasets = {
     name: "Pathway 79",
     description: "All the simulation of Pathway 79",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.996, O_RF: 0.0, O_NPC: 21.550053, O_PFC: 0.178439, O_WCC: 0.0, O_UC: 0.18837 },
     data: [
       [
         { "22's - 22's": ",Path 79 {136}&&&20,1,&&&" },
@@ -29967,6 +30046,7 @@ window.datasets = {
     name: "Pathway 80",
     description: "All the simulation of Pathway 80",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 0.0, O_NPC: 41.307185, O_PFC: 0.222738, O_WCC: 0.0, O_UC: 0.827169 },
     data: [
       [
         { "22's - 22's": ",Path 80 {136}&&&20,1,&&&" },
@@ -30232,6 +30312,7 @@ window.datasets = {
     name: "Pathway 81",
     description: "All the simulation of Pathway 81",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 29.261132, O_PFC: 0.145992, O_WCC: 0.0, O_UC: 201.260532 },
     data: [
       [
         { "18's - 18's": ",Path 81 {206}&&&20,1,&&&" },
@@ -30516,6 +30597,7 @@ window.datasets = {
     name: "Pathway 82",
     description: "All the simulation of Pathway 82",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 75.325385, O_PFC: 0.406954, O_WCC: 0.0, O_UC: 78.243828 },
     data: [
       [
         { "24's - 24's": ",Path 82 {503},Path 82 {413}&&&20,1,1,&&&" },
@@ -30632,6 +30714,7 @@ window.datasets = {
     name: "Pathway 83",
     description: "All the simulation of Pathway 83",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 37.650654, O_PFC: 0.247584, O_WCC: 0.0, O_UC: 494.563522 },
     data: [
       [
         {
@@ -31131,6 +31214,7 @@ window.datasets = {
     name: "Pathway 85",
     description: "All the simulation of Pathway 85",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 8.38555, O_PFC: 0.136292, O_WCC: 0.0, O_UC: 0.236751 },
     data: [
       [
         {
@@ -31626,6 +31710,7 @@ window.datasets = {
     name: "Pathway 86",
     description: "All the simulation of Pathway 86",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 4.4e-5, O_NPC: 24.554935, O_PFC: 0.16329, O_WCC: 0.0, O_UC: 0.483446 },
     data: [
       [
         { "24's - 24's": ",Path 86 {136},Path 86 {206}&&&20,1,1,&&&" },
@@ -31743,6 +31828,7 @@ window.datasets = {
     name: "Pathway 87",
     description: "All the simulation of Pathway 87",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 48.556709, O_PFC: 0.306761, O_WCC: 0.0, O_UC: 654.557653 },
     data: [
       [
         { "21's - 21's": ",Path 87 {840},Path 87 {136}&&&20,1,1,&&&" },
@@ -31948,6 +32034,7 @@ window.datasets = {
     name: "Pathway 88",
     description: "All the simulation of Pathway 88",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 60.235543, O_PFC: 0.345964, O_WCC: 0.0, O_UC: 59.849122 },
     data: [
       [
         {
@@ -32443,6 +32530,7 @@ window.datasets = {
     name: "Pathway 89",
     description: "All the simulation of Pathway 89",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 53.001959, O_PFC: 0.318914, O_WCC: 0.0, O_UC: 1.596094 },
     data: [
       [
         { "14's - 14's": ",Path 89 {840},Path 89 {949},Path 89 {21}&&&20,1,1,1,&&&" },
@@ -32896,6 +32984,7 @@ window.datasets = {
     name: "Pathway 90",
     description: "All the simulation of Pathway 90",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 0.0, O_NPC: 39.778321, O_PFC: 0.212776, O_WCC: 0.0, O_UC: 0.983715 },
     data: [
       [
         { "19's - 19's": ",Path 90 {21},Path 90 {136}&&&20,1,1,&&&" },
@@ -33233,6 +33322,7 @@ window.datasets = {
     name: "Pathway 91",
     description: "All the simulation of Pathway 91",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 43.077461, O_PFC: 0.259443, O_WCC: 0.0, O_UC: 1.185137 },
     data: [
       [
         {
@@ -33722,6 +33812,7 @@ window.datasets = {
     name: "Pathway 92",
     description: "All the simulation of Pathway 92",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 36.504336, O_PFC: 0.212165, O_WCC: 0.0, O_UC: 1.121022 },
     data: [
       [
         { "15's - 15's": ",Path 92 {244}&&&20,1,&&&" },
@@ -34184,6 +34275,7 @@ window.datasets = {
     name: "Pathway 93",
     description: "All the simulation of Pathway 93",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 0.0, O_NPC: 26.894662, O_PFC: 0.201804, O_WCC: 0.0, O_UC: 0.740257 },
     data: [
       [
         { "20's - 20's": ",Path 93 {575},Path 93 {840},Path 93 {807},Path 93 {1},Path 93 {243},Path 93 {206}&&&20,1,1,1,6,1,3,&&&" },
@@ -34489,6 +34581,7 @@ window.datasets = {
     name: "Pathway 94",
     description: "All the simulation of Pathway 94",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 0.0, O_NPC: 27.71283, O_PFC: 0.178028, O_WCC: 0.0, O_UC: 0.56309 },
     data: [
       [
         { "17's - 17's": ",Path 94 {21}&&&20,1,&&&" },
@@ -34850,6 +34943,7 @@ window.datasets = {
     name: "Pathway 95",
     description: "All the simulation of Pathway 95",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 32.615054, O_PFC: 0.247168, O_WCC: 0.0, O_UC: 54.726485 },
     data: [
       [
         { "14's - 14's": ",Path 95 {840}&&&20,1,&&&" },
@@ -35303,6 +35397,7 @@ window.datasets = {
     name: "Pathway 96",
     description: "All the simulation of Pathway 96",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.996, O_RF: 0.006267, O_NPC: 1.67555, O_PFC: 0.021552, O_WCC: 0.0, O_UC: 1.647384 },
     data: [
       [
         { "16's - 16's": ",Path 96 {840},Path 96 {949},Path 96 {21}&&&20,1,1,1,&&&" },
@@ -35749,6 +35844,7 @@ window.datasets = {
     name: "Pathway 97",
     description: "All the simulation of Pathway 97",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.996, O_RF: 0.01, O_NPC: 2.256143, O_PFC: 0.037867, O_WCC: 0.0, O_UC: 0.042065 },
     data: [
       [
         { "13's - 13's": ",Path 97 {632},Path 97 {396},Path 97 {823},Path 97 {776},Path 97 {21},Path 97 {258}&&&20,1,1,1,1,1,1,&&&" },
@@ -36242,6 +36338,7 @@ window.datasets = {
     name: "Pathway 98",
     description: "All the simulation of Pathway 98",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 33.08547, O_PFC: 0.219259, O_WCC: 0.117284, O_UC: 0.903432 },
     data: [
       [
         { "17's - 17's": ",Path 98 {0},Path 98 {587},Path 98 {354},Path 98 {807},Path 98 {793},Path 98 {136}&&&20,5,1,1,1,1,2,&&&" },
@@ -36648,6 +36745,7 @@ window.datasets = {
     name: "Pathway 99",
     description: "All the simulation of Pathway 99",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 13.519714, O_PFC: 0.063251, O_WCC: 0.0, O_UC: 0.331359 },
     data: [
       [
         { "34's - 34's": ",Path 99 {206},Path 99 {413}&&&20,1,2,&&&" },
@@ -36712,6 +36810,7 @@ window.datasets = {
     name: "Pathway 100",
     description: "All the simulation of Pathway 100",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 31.469029, O_PFC: 0.168579, O_WCC: 0.0, O_UC: 134.723431 },
     data: [
       [
         { "22's - 22's": ",Path 100 {136}&&&20,1,&&&" },
@@ -36993,6 +37092,7 @@ window.datasets = {
     name: "Pathway 101",
     description: "All the simulation of Pathway 101",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 84.034293, O_PFC: 0.392517, O_WCC: 0.0, O_UC: 41.874537 },
     data: [
       [
         { "15's - 15's": ",Path 101 {303}&&&20,1,&&&" },
@@ -37452,6 +37552,7 @@ window.datasets = {
     name: "Pathway 102",
     description: "All the simulation of Pathway 102",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 60.31295, O_PFC: 0.324496, O_WCC: 0.0, O_UC: 144.910598 },
     data: [
       [
         { "15's - 15's": ",Path 102 {949},Path 102 {840},Path 102 {21}&&&20,1,1,1,&&&" },
@@ -37899,6 +38000,7 @@ window.datasets = {
     name: "Pathway 103",
     description: "All the simulation of Pathway 103",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 44.779501, O_PFC: 0.226096, O_WCC: 0.0, O_UC: 1.33299 },
     data: [
       [
         { "16's - 16's": ",Path 103 {303},Path 103 {949},Path 103 {14}&&&20,4,1,2,&&&" },
@@ -38348,6 +38450,7 @@ window.datasets = {
     name: "Pathway 104",
     description: "All the simulation of Pathway 104",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 33.391806, O_PFC: 0.190622, O_WCC: 0.0, O_UC: 0.980984 },
     data: [
       [
         { "13's - 13's": ",Path 104 {0},Path 104 {529},Path 104 {534},Path 104 {880},Path 104 {823},Path 104 {742}&&&20,6,1,1,1,1,1,&&&" },
@@ -38811,6 +38914,7 @@ window.datasets = {
     name: "Pathway 105",
     description: "All the simulation of Pathway 105",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 89.075219, O_PFC: 0.441234, O_WCC: 0.0, O_UC: 2.480244 },
     data: [
       [
         {
@@ -39306,6 +39410,7 @@ window.datasets = {
     name: "Pathway 106",
     description: "All the simulation of Pathway 106",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 76.088949, O_PFC: 0.442131, O_WCC: 0.0, O_UC: 2.297842 },
     data: [
       [
         { "22's - 22's": ",Path 106 {136}&&&20,1,&&&" },
@@ -39539,6 +39644,7 @@ window.datasets = {
     name: "Pathway 107",
     description: "All the simulation of Pathway 107",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 33.833783, O_PFC: 0.211459, O_WCC: 0.0, O_UC: 0.795075 },
     data: [
       [
         { "23's - 23's": ",Path 107 {136},Path 107 {206}&&&20,1,1,&&&" },
@@ -39744,6 +39850,7 @@ window.datasets = {
     name: "Pathway 108",
     description: "All the simulation of Pathway 108",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 46.747267, O_PFC: 0.231134, O_WCC: 0.0, O_UC: 1.219407 },
     data: [
       [
         { "16's - 16's": ",Path 108 {396}&&&20,2,&&&" },
@@ -40202,6 +40309,7 @@ window.datasets = {
     name: "Pathway 109",
     description: "All the simulation of Pathway 109",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 51.738705, O_PFC: 0.232431, O_WCC: 0.064587, O_UC: 1.535092 },
     data: [
       [
         { "14's - 14's": ",Path 109 {0}&&&20,1,&&&" },
@@ -40649,6 +40757,7 @@ window.datasets = {
     name: "Pathway 110",
     description: "All the simulation of Pathway 110",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 43.138116, O_PFC: 0.258644, O_WCC: 0.0, O_UC: 55.757241 },
     data: [
       [
         {
@@ -41138,6 +41247,7 @@ window.datasets = {
     name: "Pathway 111",
     description: "All the simulation of Pathway 111",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 0.008, O_NPC: 24.344207, O_PFC: 0.107545, O_WCC: 0.149506, O_UC: 0.427059 },
     data: [
       [
         { "21's - 21's": ",Path 111 {949},Path 111 {136},Path 111 {206}&&&20,1,1,1,&&&" },
@@ -41426,6 +41536,7 @@ window.datasets = {
     name: "Pathway 112",
     description: "All the simulation of Pathway 112",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 58.495159, O_PFC: 0.33641, O_WCC: 0.0, O_UC: 1.452174 },
     data: [
       [
         {
@@ -41918,6 +42029,7 @@ window.datasets = {
     name: "Pathway 113",
     description: "All the simulation of Pathway 113",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 39.992731, O_PFC: 0.251057, O_WCC: 0.0, O_UC: 75.520403 },
     data: [
       [
         { "16's - 16's": ",Path 113 {21}&&&20,2,&&&" },
@@ -42340,6 +42452,7 @@ window.datasets = {
     name: "Pathway 114",
     description: "All the simulation of Pathway 114",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 19.368677, O_PFC: 0.140107, O_WCC: 0.0, O_UC: 0.471616 },
     data: [
       [
         { "16's - 16's": ",Path 114 {949}&&&20,1,&&&" },
@@ -42783,6 +42896,7 @@ window.datasets = {
     name: "Pathway 115",
     description: "All the simulation of Pathway 115",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 65.047717, O_PFC: 0.395155, O_WCC: 0.0, O_UC: 2.029342 },
     data: [
       [
         { "14's - 14's": ",Path 115 {599},Path 115 {436},Path 115 {303}&&&20,1,1,1,&&&" },
@@ -43254,6 +43368,7 @@ window.datasets = {
     name: "Pathway 116",
     description: "All the simulation of Pathway 116",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 46.271702, O_PFC: 0.278598, O_WCC: 0.0, O_UC: 1.461086 },
     data: [
       [
         { "16's - 16's": ",Path 116 {14},Path 116 {354}&&&20,1,1,&&&" },
@@ -43685,6 +43800,7 @@ window.datasets = {
     name: "Pathway 117",
     description: "All the simulation of Pathway 117",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.997, O_RF: 0.0, O_NPC: 11.26479, O_PFC: 0.14603, O_WCC: 0.0, O_UC: 0.198469 },
     data: [
       [
         {
@@ -44190,6 +44306,7 @@ window.datasets = {
     name: "Pathway 118",
     description: "All the simulation of Pathway 118",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 0.0, O_NPC: 48.098602, O_PFC: 0.292919, O_WCC: 0.0, O_UC: 0.790038 },
     data: [
       [
         { "13's - 13's": ",Path 118 {0},Path 118 {529},Path 118 {534},Path 118 {807},Path 118 {742},Path 118 {249},Path 118 {258}&&&20,1,1,1,2,1,2,1,&&&" },
@@ -44680,6 +44797,7 @@ window.datasets = {
     name: "Pathway 119",
     description: "All the simulation of Pathway 119",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 0.0, O_NPC: 36.05285, O_PFC: 0.161349, O_WCC: 0.0, O_UC: 0.801032 },
     data: [
       [
         { "18's - 18's": ",Path 119 {503},Path 119 {515},Path 119 {343},Path 119 {368},Path 119 {293},Path 119 {206}&&&20,1,1,3,1,1,1,&&&" },
@@ -45099,6 +45217,7 @@ window.datasets = {
     name: "Pathway 121",
     description: "All the simulation of Pathway 121",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 0.000222, O_NPC: 46.958774, O_PFC: 0.246827, O_WCC: 0.0, O_UC: 0.851791 },
     data: [
       [
         { "23's - 23's": ",Path 121 {206}&&&12,1,&&&" },
@@ -45310,6 +45429,7 @@ window.datasets = {
     name: "Pathway 122",
     description: "All the simulation of Pathway 122",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 25.371025, O_PFC: 0.138764, O_WCC: 0.0, O_UC: 0.655806 },
     data: [
       [
         { "17's - 17's": ",Path 122 {554},Path 122 {840},Path 122 {949},Path 122 {21}&&&20,1,1,1,1,&&&" },
@@ -45728,6 +45848,7 @@ window.datasets = {
     name: "Pathway 123",
     description: "All the simulation of Pathway 123",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 60.326739, O_PFC: 0.307454, O_WCC: 0.0, O_UC: 1.733173 },
     data: [
       [
         {
@@ -46179,6 +46300,7 @@ window.datasets = {
     name: "Pathway 124",
     description: "All the simulation of Pathway 124",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 50.757312, O_PFC: 0.243898, O_WCC: 0.0, O_UC: 52.19513 },
     data: [
       [
         {
@@ -46615,6 +46737,7 @@ window.datasets = {
     name: "Pathway 125",
     description: "All the simulation of Pathway 125",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 60.88495, O_PFC: 0.297654, O_WCC: 0.0, O_UC: 1.767637 },
     data: [
       [
         { "15's - 15's": ",Path 125 {840}&&&20,1,&&&" },
@@ -47080,6 +47203,7 @@ window.datasets = {
     name: "Pathway 126",
     description: "All the simulation of Pathway 126",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 31.958226, O_PFC: 0.173749, O_WCC: 0.0, O_UC: 38.467893 },
     data: [
       [
         {
@@ -47542,6 +47666,7 @@ window.datasets = {
     name: "Pathway 127",
     description: "All the simulation of Pathway 127",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 2.2e-5, O_NPC: 32.8438, O_PFC: 0.150235, O_WCC: 0.0, O_UC: 1.002969 },
     data: [
       [
         { "21's - 21's": ",Path 127 {136}&&&20,1,&&&" },
@@ -47835,6 +47960,7 @@ window.datasets = {
     name: "Pathway 128",
     description: "All the simulation of Pathway 128",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 40.08124, O_PFC: 0.180175, O_WCC: 0.0, O_UC: 41.043504 },
     data: [
       [
         { "13's - 13's": ",Path 128 {0},Path 128 {412},Path 128 {880},Path 128 {950},Path 128 {1},Path 128 {258}&&&20,1,6,1,1,1,1,&&&" },
@@ -48331,6 +48457,7 @@ window.datasets = {
     name: "Pathway 129",
     description: "All the simulation of Pathway 129",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.997, O_RF: 0.0, O_NPC: 33.250752, O_PFC: 0.141916, O_WCC: 0.0, O_UC: 0.733831 },
     data: [
       [
         { "17's - 17's": ",Path 129 {585},Path 129 {354},Path 129 {21}&&&20,1,1,1,&&&" },
@@ -48752,6 +48879,7 @@ window.datasets = {
     name: "Pathway 130",
     description: "All the simulation of Pathway 130",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 38.272904, O_PFC: 0.168044, O_WCC: 0.0, O_UC: 0.91827 },
     data: [
       [
         { "16's - 16's": ",Path 130 {303},Path 130 {734},Path 130 {722},Path 130 {14},Path 130 {24}&&&20,3,1,3,3,1,&&&" },
@@ -49195,6 +49323,7 @@ window.datasets = {
     name: "Pathway 131",
     description: "All the simulation of Pathway 131",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 16.923583, O_PFC: 0.172572, O_WCC: 0.0, O_UC: 0.416388 },
     data: [
       [
         { "21's - 21's": ",Path 131 {136}&&&20,1,&&&" },
@@ -49446,6 +49575,7 @@ window.datasets = {
     name: "Pathway 132",
     description: "All the simulation of Pathway 132",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 60.786047, O_PFC: 0.304396, O_WCC: 0.0, O_UC: 20.375389 },
     data: [
       [
         {
@@ -49954,6 +50084,7 @@ window.datasets = {
     name: "Pathway 133",
     description: "All the simulation of Pathway 133",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 42.373701, O_PFC: 0.261782, O_WCC: 0.0, O_UC: 30.930288 },
     data: [
       [
         { "15's - 15's": ",Path 133 {515},Path 133 {396},Path 133 {585},Path 133 {598}&&&20,1,1,1,1,&&&" },
@@ -50392,6 +50523,7 @@ window.datasets = {
     name: "Pathway 134",
     description: "All the simulation of Pathway 134",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 54.562533, O_PFC: 0.290488, O_WCC: 0.0, O_UC: 1.043283 },
     data: [
       [
         { "21's - 21's": ",Path 134 {136}&&&20,1,&&&" },
@@ -50679,6 +50811,7 @@ window.datasets = {
     name: "Pathway 135",
     description: "All the simulation of Pathway 135",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 40.471419, O_PFC: 0.200801, O_WCC: 0.0, O_UC: 0.802765 },
     data: [
       [
         { "17's - 17's": ",Path 135 {368},Path 135 {343},Path 135 {335},Path 135 {293}&&&20,1,1,2,1,&&&" },
@@ -51097,6 +51230,7 @@ window.datasets = {
     name: "Pathway 136",
     description: "All the simulation of Pathway 136",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 45.201788, O_PFC: 0.278664, O_WCC: 0.0, O_UC: 44.445034 },
     data: [
       [
         {
@@ -51565,6 +51699,7 @@ window.datasets = {
     name: "Pathway 137",
     description: "All the simulation of Pathway 137",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.995, O_RF: 0.001089, O_NPC: 1.826668, O_PFC: 0.028216, O_WCC: 0.0, O_UC: 0.053393 },
     data: [
       [
         {
@@ -52036,6 +52171,7 @@ window.datasets = {
     name: "Pathway 138",
     description: "All the simulation of Pathway 138",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 4.4e-5, O_NPC: 20.592914, O_PFC: 0.188701, O_WCC: 0.0, O_UC: 2.506062 },
     data: [
       [
         { "18's - 18's": ",Path 138 {972}&&&20,1,&&&" },
@@ -52359,6 +52495,7 @@ window.datasets = {
     name: "Pathway 139",
     description: "All the simulation of Pathway 139",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 68.075829, O_PFC: 0.331294, O_WCC: 0.0, O_UC: 1.493007 },
     data: [
       [
         { "27's - 27's": ",Path 139 {503},Path 139 {411}&&&12,1,1,&&&" },
@@ -52531,6 +52668,7 @@ window.datasets = {
     name: "Pathway 140",
     description: "All the simulation of Pathway 140",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 44.810582, O_PFC: 0.298763, O_WCC: 0.0, O_UC: 50.910971 },
     data: [
       [
         {
@@ -53023,6 +53161,7 @@ window.datasets = {
     name: "Pathway 141",
     description: "All the simulation of Pathway 141",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.998, O_RF: 0.0, O_NPC: 28.849276, O_PFC: 0.120383, O_WCC: 0.0, O_UC: 0.681756 },
     data: [
       [
         { "17's - 17's": ",Path 141 {585},Path 141 {354}&&&20,1,1,&&&" },
@@ -53450,6 +53589,7 @@ window.datasets = {
     name: "Pathway 142",
     description: "All the simulation of Pathway 142",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 45.834454, O_PFC: 0.188215, O_WCC: 0.0, O_UC: 1.016104 },
     data: [
       [
         { "16's - 16's": ",Path 142 {731}&&&20,1,&&&" },
@@ -53878,6 +54018,7 @@ window.datasets = {
     name: "Pathway 143",
     description: "All the simulation of Pathway 143",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 43.118927, O_PFC: 0.293363, O_WCC: 0.0, O_UC: 59.122945 },
     data: [
       [
         {
@@ -54355,6 +54496,7 @@ window.datasets = {
     name: "Pathway 144",
     description: "All the simulation of Pathway 144",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 60.433998, O_PFC: 0.327304, O_WCC: 0.0, O_UC: 1.502549 },
     data: [
       [
         {
@@ -54844,6 +54986,7 @@ window.datasets = {
     name: "Pathway 145",
     description: "All the simulation of Pathway 145",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 0.0, O_NPC: 45.848893, O_PFC: 0.237385, O_WCC: 0.0, O_UC: 0.850234 },
     data: [
       [
         {
@@ -55333,6 +55476,7 @@ window.datasets = {
     name: "Pathway 146",
     description: "All the simulation of Pathway 146",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.999, O_RF: 0.0, O_NPC: 52.846789, O_PFC: 0.251478, O_WCC: 0.0, O_UC: 64.160259 },
     data: [
       [
         { "14's - 14's": ",Path 146 {753}&&&20,1,&&&" },
@@ -55803,6 +55947,7 @@ window.datasets = {
     name: "Pathway 147",
     description: "All the simulation of Pathway 147",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 43.807235, O_PFC: 0.218361, O_WCC: 0.0, O_UC: 1.270912 },
     data: [
       [
         { "18's - 18's": ",Path 147 {469},Path 147 {575},Path 147 {301},Path 147 {293}&&&20,1,1,5,2,&&&" },
@@ -56219,6 +56364,7 @@ window.datasets = {
     name: "Pathway 149",
     description: "All the simulation of Pathway 149",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 54.524624, O_PFC: 0.277225, O_WCC: 0.0, O_UC: 1.533598 },
     data: [
       [
         {
@@ -56724,6 +56870,7 @@ window.datasets = {
     name: "Pathway 150",
     description: "All the simulation of Pathway 150",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 46.407397, O_PFC: 0.214531, O_WCC: 0.0, O_UC: 1.375867 },
     data: [
       [
         {
@@ -57192,6 +57339,7 @@ window.datasets = {
     name: "Pathway 151",
     description: "All the simulation of Pathway 151",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 50.695515, O_PFC: 0.300979, O_WCC: 0.0, O_UC: 1.392079 },
     data: [
       [
         {
@@ -57657,6 +57805,7 @@ window.datasets = {
     name: "Pathway 152",
     description: "All the simulation of Pathway 152",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 60.107261, O_PFC: 0.306406, O_WCC: 0.0, O_UC: 53.188948 },
     data: [
       [
         {
@@ -58150,6 +58299,7 @@ window.datasets = {
     name: "Pathway 153",
     description: "All the simulation of Pathway 153",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 47.660909, O_PFC: 0.263016, O_WCC: 0.0, O_UC: 52.231894 },
     data: [
       [
         {
@@ -58628,6 +58778,7 @@ window.datasets = {
     name: "Pathway 154",
     description: "All the simulation of Pathway 154",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 66.583935, O_PFC: 0.341134, O_WCC: 0.0, O_UC: 432.528708 },
     data: [
       [
         {
@@ -58971,6 +59122,7 @@ window.datasets = {
     name: "Pathway 155",
     description: "All the simulation of Pathway 155",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 46.259909, O_PFC: 0.251161, O_WCC: 0.0, O_UC: 74.519214 },
     data: [
       [
         { "16's - 16's": ",Path 155 {840},Path 155 {949},Path 155 {21}&&&20,1,1,1,&&&" },
@@ -59420,6 +59572,7 @@ window.datasets = {
     name: "Pathway 156",
     description: "All the simulation of Pathway 156",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 53.777481, O_PFC: 0.243181, O_WCC: 0.0, O_UC: 1.52382 },
     data: [
       [
         {
@@ -59885,6 +60038,7 @@ window.datasets = {
     name: "Pathway 157",
     description: "All the simulation of Pathway 157",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 55.004516, O_PFC: 0.32444, O_WCC: 0.0, O_UC: 1.326856 },
     data: [
       [
         { "14's - 14's": ",Path 157 {466},Path 157 {784}&&&20,1,1,&&&" },
@@ -60340,6 +60494,7 @@ window.datasets = {
     name: "Pathway 158",
     description: "All the simulation of Pathway 158",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 58.881463, O_PFC: 0.353436, O_WCC: 0.0, O_UC: 60.0452 },
     data: [
       [
         { "14's - 14's": ",Path 158 {599}&&&20,1,&&&" },
@@ -60799,6 +60954,7 @@ window.datasets = {
     name: "Pathway 159",
     description: "All the simulation of Pathway 159",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.997, O_RF: 0.000733, O_NPC: 44.366712, O_PFC: 0.198412, O_WCC: 0.0, O_UC: 0.575775 },
     data: [
       [
         { "27's - 27's": ",Path 159 {206}&&&12,1,&&&" },
@@ -60940,6 +61096,7 @@ window.datasets = {
     name: "Pathway 160",
     description: "All the simulation of Pathway 160",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 10.922081, O_PFC: 0.078832, O_WCC: 0.0, O_UC: 0.308749 },
     data: [
       [
         { "13's - 13's": ",Path 160 {508},Path 160 {784},Path 160 {953},Path 160 {714}&&&20,1,1,1,1,&&&" },
@@ -61427,6 +61584,7 @@ window.datasets = {
     name: "Pathway 161",
     description: "All the simulation of Pathway 161",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 45.711244, O_PFC: 0.283872, O_WCC: 0.0, O_UC: 83.293123 },
     data: [
       [
         { "13's - 13's": ",Path 161 {0},Path 161 {807},Path 161 {823}&&&20,1,1,1,&&&" },
@@ -61889,6 +62047,7 @@ window.datasets = {
     name: "Pathway 162",
     description: "All the simulation of Pathway 162",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.997, O_RF: 0.0, O_NPC: 31.363471, O_PFC: 0.214674, O_WCC: 0.0, O_UC: 0.317067 },
     data: [
       [
         { "17's - 17's": ",Path 162 {343},Path 162 {840},Path 162 {587}&&&20,2,1,1,&&&" },
@@ -62295,6 +62454,7 @@ window.datasets = {
     name: "Pathway 163",
     description: "All the simulation of Pathway 163",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 0.993, O_RF: 0.0014, O_NPC: 11.228167, O_PFC: 0.053561, O_WCC: 0.0, O_UC: 0.078175 },
     data: [
       [
         { "20's - 20's": ",Path 163 {413},Path 163 {293},Path 163 {206},Path 163 {243}&&&20,1,1,1,1,&&&" },
@@ -62582,6 +62742,7 @@ window.datasets = {
     name: "Pathway 164",
     description: "All the simulation of Pathway 164",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 62.293257, O_PFC: 0.337179, O_WCC: 0.0, O_UC: 256.324991 },
     data: [
       [
         { "16's - 16's": ",Path 164 {840},Path 164 {21},Path 164 {949}&&&20,1,2,1,&&&" },
@@ -63025,6 +63186,7 @@ window.datasets = {
     name: "Pathway 165",
     description: "All the simulation of Pathway 165",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 40.864844, O_PFC: 0.291733, O_WCC: 0.0, O_UC: 1.223958 },
     data: [
       [
         { "16's - 16's": ",Path 165 {949}&&&20,1,&&&" },
@@ -63456,6 +63618,7 @@ window.datasets = {
     name: "Pathway 166",
     description: "All the simulation of Pathway 166",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 74.040248, O_PFC: 0.368865, O_WCC: 0.0, O_UC: 2.201255 },
     data: [
       [
         { "17's - 17's": ",Path 166 {575},Path 166 {949}&&&20,1,1,&&&" },
@@ -63874,6 +64037,7 @@ window.datasets = {
     name: "Pathway 167",
     description: "All the simulation of Pathway 167",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 61.904863, O_PFC: 0.350067, O_WCC: 0.0, O_UC: 1.658654 },
     data: [
       [
         {
@@ -64382,6 +64546,7 @@ window.datasets = {
     name: "Pathway 168",
     description: "All the simulation of Pathway 168",
     versions: ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14"],
+    results: { O_REL: 1.0, O_RF: 0.0, O_NPC: 47.732434, O_PFC: 0.313155, O_WCC: 0.0, O_UC: 1.348193 },
     data: [
       [
         {
