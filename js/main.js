@@ -285,14 +285,13 @@ const LineUpSelection = (function () {
 
         // Define columns dynamically
         builder
-          .column(LineUpJS.buildStringColumn("name").label("Path #").width(80))
+          .column(LineUpJS.buildStringColumn("name").label("Path").width(67))
           .column(LineUpJS.buildNumberColumn("Objective_1", [globalMinMax["O_REL"].min, globalMinMax["O_REL"].max]).label("Reliability").color("blue"))
-          .column(LineUpJS.buildNumberColumn("Objective_2", [globalMinMax["O_RF"].min, globalMinMax["O_RF"].max]).label("Restriction Frequency").color("green"))
-          .column(LineUpJS.buildNumberColumn("Objective_3", [globalMinMax["O_NPC"].min, globalMinMax["O_NPC"].max]).label("Net Present Cost").color("red"))
+          .column(LineUpJS.buildNumberColumn("Objective_2", [globalMinMax["O_RF"].min, globalMinMax["O_RF"].max]).label("Restriction Frequency").color("green").width(181))
+          .column(LineUpJS.buildNumberColumn("Objective_3", [globalMinMax["O_NPC"].min, globalMinMax["O_NPC"].max]).label("Net Present Cost").color("red").width(168))
           .column(
-            LineUpJS.buildNumberColumn("Objective_4", [globalMinMax["O_PFC"].min, globalMinMax["O_PFC"].max]).label("Peak Financial Cost").color("orange")
-          )
-          .column(LineUpJS.buildNumberColumn("Objective_5", [globalMinMax["O_WCC"].min, globalMinMax["O_WCC"].max]).label("Worst Case Costs").color("purple"))
+            LineUpJS.buildNumberColumn("Objective_4", [globalMinMax["O_PFC"].min, globalMinMax["O_PFC"].max]).label("Peak Financial Cost").color("orange").width(173))
+          .column(LineUpJS.buildNumberColumn("Objective_5", [globalMinMax["O_WCC"].min, globalMinMax["O_WCC"].max]).label("Worst Case Costs").color("purple").width(155))
           .column(LineUpJS.buildNumberColumn("Objective_6", [globalMinMax["O_UC"].min, globalMinMax["O_UC"].max]).label("Unit Cost").color("magenta"));
 
         // Define ranking
