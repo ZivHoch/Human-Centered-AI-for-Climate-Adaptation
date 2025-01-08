@@ -25,10 +25,10 @@ const datasetSelection = (function () {
       }
       datasetDropDown.on("change", (e) => {
         const selectedValue = e.target.value; // Access the selected value
-        this.refresh(this.currentId, selectedValue);
+        this.refresh([this.currentId], selectedValue);
       });
 
-      this.refresh(this.currentId, 4);
+      this.refresh([this.currentId], 4);
     },
 
     toggleDataSetInformation: function () {
@@ -316,14 +316,21 @@ const LineUpSelection = (function () {
 
         // Build LineUp visualization
         const lineup = builder.buildTaggle(lineupContainer);
-
+        
         // Listen to selection events
         lineup.on("selectionChanged", (selectedIndices) => {
+          console.log(selectedIndices);
+          let selectedIds = []
           if (selectedIndices.length > 0) {
-            const selectedRow = arr[selectedIndices[0]];
+            selectedIndices.forEach(selected =>{
+              selectedIds.push(arr[selected].name);
+            })
+            console.log(selectedIds);
+            
+            const selectedRow = arr[selectedIndices[0]];        
             const selectedValue = $("#datasetDropDown").val();
             datasetSelection.currentId = selectedRow.name;
-            datasetSelection.refresh(datasetSelection.currentId, selectedValue);
+            datasetSelection.refresh(selectedIds, selectedValue);
           } else {
             console.log("No dataset selected.");
           }

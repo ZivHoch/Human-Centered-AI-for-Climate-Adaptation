@@ -37,7 +37,12 @@ function DynaSet() {
   vis.loadHarcodedDatasetFromJavascriptObject = function (datasetId, versionNumber) {
     window.edgeThicknessScale = undefined;
     window.selectedTimestepForSorting = undefined;
-    const dataset = window.datasets[datasetId].data[versionNumber];
+    let datasetList = []
+    datasetId.forEach(dataset =>{
+      datasetList.push(window.datasets[dataset].data[versionNumber])
+    })
+    
+    const dataset = combineData(datasetList)
     if (datasetSelection.currentLoadedDatasetIndex == 7) window.paperDetailsPresent = true;
     else window.paperDetailsPresent = false;
 
@@ -114,7 +119,7 @@ function DynaSet() {
         d3.selectAll("#numTimesteps").text(versions.length);
         d3.selectAll("#numIntersections").text(Object.keys(aggregatedLattice.concepts).length);
 
-        d3.select("#datasetInformation").html(window.datasets[datasetId].description);
+        d3.select("#datasetInformation").html(window.datasets[datasetId[0]].description);
 
         window.numSets = degreeDictionary["1"].length;
         window.degreesAggregated = [-1];
@@ -195,6 +200,96 @@ function DynaSet() {
   // console.log("dataset", window.datasets);
 
   /* private functions */
+  function cleanDataWithRegex(data) {
+    const cleanedData = {};
+
+    for (const [key, value] of Object.entries(data)) {
+        // Replace ",," with ","
+        let cleanedValue = value.replace(/,+/g, ',');
+        // Replace "&&&&&&" with "&&&"
+        cleanedValue = cleanedValue.replace(/&&&&&&/g, '&&&');
+        
+        // Store the cleaned value back
+        cleanedData[key] = cleanedValue;
+    }
+
+    return cleanedData;
+}
+function combineData(inputData) {
+  // return inputData[0];
+  // Create an empty object to store the result
+  const combinedData = {};
+console.log("inputData",inputData[0]);
+
+
+  // Iterate over each dictionary in the input list
+  inputData.forEach(data => {
+    
+      for (const [index, content] of Object.entries(data)) {
+          // Split the content into the three parts
+          ageRange = Object.keys(content)[0];
+          contentValues = Object.values(content)[0];
+
+          const parts = contentValues.split('&&&');
+          if (!combinedData[ageRange]) {
+              combinedData[ageRange] = { paths: [] };
+          }
+          
+          // Initialize the combined data for this age range
+          parts.forEach(part => {
+              if (!part.startsWith(',') && part.length !== 0) {
+                  const curInfra = part.split(',')[0];
+                  if (!combinedData[ageRange][curInfra]) {
+                      combinedData[ageRange][curInfra] = [];
+                  }
+              }
+          });
+
+          // Append the parts to the respective lists
+          const newPathsCount = parts[0].split(',').length - 1;
+          const addedAlready = { paths: 0 };
+
+          parts.forEach(part => {
+              if (part.startsWith(',')) {
+                  combinedData[ageRange].paths.push(part);
+              } else if (part.length !== 0) {
+                  const curInfraData = part.replace(/^,+|,+$/g, '').split(',');
+                  const curInfraKey = curInfraData[0];
+                  const curInfraValues = curInfraData.slice(1);
+                  addedAlready[curInfraKey] = curInfraKey;
+                  combinedData[ageRange][curInfraKey].push(curInfraValues.join(','));
+              }
+          });
+
+          for (const key in combinedData[ageRange]) {
+              if (!(key in addedAlready)) {
+                  combinedData[ageRange][key].push('0,'.repeat(newPathsCount));
+              }
+          }
+      }
+  });
+  
+  const result ={};
+  for (const [ageRange, content] of Object.entries(combinedData)) {
+    result[ageRange] = '';
+    // Get entries in reverse order
+    const reversedEntries = Object.entries(content).reverse();
+    for (const [key, value] of reversedEntries) {
+      const t = value.join(',');
+      if (key === 'paths') {
+        result[ageRange] += `${t}&&&`;
+      } else {
+        result[ageRange] += `${key},${t},&&&`;
+      }
+    }
+ }
+ const arrayOfObjectsWithKeys = Object.entries(cleanDataWithRegex(result)).map(([key, value]) => ({
+  [key]: value
+}));
+
+
+  return arrayOfObjectsWithKeys;
+}
 
   function getSetElements(setName, timestep) {
     const timestepIndex = timeLabelToIndexDictionary[timestep];
