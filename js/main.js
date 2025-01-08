@@ -281,17 +281,31 @@ const LineUpSelection = (function () {
       if (lineupContainer) {
         // Create LineUpJS builder
         const builder = LineUpJS.builder(arr);
-        const colorTable = ["blue", "green", "red", "orange", "purple", "yellow", "cyan", "magenta", "pink", "brown"];
-
         // Define columns dynamically
         builder
           .column(LineUpJS.buildStringColumn("name").label("Path").width(67))
           .column(LineUpJS.buildNumberColumn("Objective_1", [globalMinMax["O_REL"].min, globalMinMax["O_REL"].max]).label("Reliability").color("blue"))
-          .column(LineUpJS.buildNumberColumn("Objective_2", [globalMinMax["O_RF"].min, globalMinMax["O_RF"].max]).label("Restriction Frequency").color("green").width(181))
-          .column(LineUpJS.buildNumberColumn("Objective_3", [globalMinMax["O_NPC"].min, globalMinMax["O_NPC"].max]).label("Net Present Cost").color("red").width(168))
           .column(
-            LineUpJS.buildNumberColumn("Objective_4", [globalMinMax["O_PFC"].min, globalMinMax["O_PFC"].max]).label("Peak Financial Cost").color("orange").width(173))
-          .column(LineUpJS.buildNumberColumn("Objective_5", [globalMinMax["O_WCC"].min, globalMinMax["O_WCC"].max]).label("Worst Case Costs").color("purple").width(155))
+            LineUpJS.buildNumberColumn("Objective_2", [globalMinMax["O_RF"].min, globalMinMax["O_RF"].max])
+              .label("Restriction Frequency")
+              .color("green")
+              .width(181)
+          )
+          .column(
+            LineUpJS.buildNumberColumn("Objective_3", [globalMinMax["O_NPC"].min, globalMinMax["O_NPC"].max]).label("Net Present Cost").color("red").width(168)
+          )
+          .column(
+            LineUpJS.buildNumberColumn("Objective_4", [globalMinMax["O_PFC"].min, globalMinMax["O_PFC"].max])
+              .label("Peak Financial Cost")
+              .color("orange")
+              .width(173)
+          )
+          .column(
+            LineUpJS.buildNumberColumn("Objective_5", [globalMinMax["O_WCC"].min, globalMinMax["O_WCC"].max])
+              .label("Worst Case Costs")
+              .color("purple")
+              .width(155)
+          )
           .column(LineUpJS.buildNumberColumn("Objective_6", [globalMinMax["O_UC"].min, globalMinMax["O_UC"].max]).label("Unit Cost").color("magenta"));
 
         // Define ranking
