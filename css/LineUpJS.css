@@ -971,7 +971,7 @@ article.le-row-animation.le-update-animation.le-hide-animation > .le-tr[data-ani
   display: unset;
 }
 .lu-th-summary {
-  height: 2em;
+  height: 5em;
 }
 .lu-th-summary:empty {
   display: none;
