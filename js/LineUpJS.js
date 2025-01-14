@@ -9577,7 +9577,7 @@
                 (r.currentLeaves = []),
                 (r.currentLeavesNameCache = new Map()),
                 (r.currentLeavesPathCache = new Map()),
-                (r.hierarchySeparator = n.hierarchySeparator || "."),
+                (r.hierarchySeparator = " → "),
                 (r.hierarchy = r.initHierarchy(n.hierarchy)),
                 (r.currentNode = r.hierarchy),
                 (r.currentLeaves = Wc(r.currentNode, r.currentMaxDepth)),
@@ -9698,7 +9698,7 @@
                       : this.currentLeavesPathCache.has(r)
                       ? this.currentLeavesPathCache.get(r)
                       : this.currentLeaves.find(function (t) {
-                          return t.path === r || t.name === r || r.startsWith(t.path + n.hierarchySeparator);
+                          return t.path === r || t.name === r || r.startsWith(t.path + " → ");
                         }) || null);
               }),
               Object.defineProperty(e.prototype, "dataLength", {

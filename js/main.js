@@ -240,12 +240,76 @@ const selectionPanel = (function () {
 const LineUpSelection = (function () {
   return {
     init: function () {
+      const rootSymbol = "┇";
       const arr = [];
       const globalMinMax = {};
 
+      function getPermutations(array) {
+        if (array.length === 0) return [[]];
+        const result = [];
+        array.forEach((item, index) => {
+          const rest = [...array.slice(0, index), ...array.slice(index + 1)];
+          const permutations = getPermutations(rest);
+          permutations.forEach((perm) => result.push([item, ...perm]));
+        });
+        return result;
+      }
+      
+      function createHierarchyFromPermutations(array) {
+        const permutations = getPermutations(array);
+      
+        const root = {
+          name: rootSymbol,
+          color: 'black',
+          children: [],
+        };
+      
+        function addToHierarchy(node, path) {
+          if (path.length === 0) return;
+      
+          const [current, ...rest] = path;
+      
+          let childNode = node.children.find((child) => child.name === current);
+      
+          if (!childNode) {
+
+            childNode = {
+              name: current,
+              color: generateColor(current), // Optional color logic
+              children: [],
+            };
+            node.children.push(childNode);
+            childNode2 = {
+              name: current,
+              color: generateColor(current), // Optional color logic
+            };
+            node.children.push(childNode2);
+          }
+      
+          addToHierarchy(childNode, rest);
+        }
+      
+        permutations.forEach((perm) => addToHierarchy(root, perm));
+      
+        return root;
+      }
+      
+      // Optional: Generate a color for each node
+      function generateColor(name) {
+        const colors = ['blue', 'red', 'green', 'yellow', 'purple'];
+        return colors[parseInt(name, 10) % colors.length];
+      }
+      
+      
+      let infras = []
       // Iterate over each path in the data
       for (const path in window.datasets) {
         const results = window.datasets[path].results;
+        let curInfras = window.datasets[path].flow.split(" → ");
+        if (curInfras.length > infras.length){
+          infras = curInfras;
+        }
+        
         for (const key in results) {
           const value = results[key];
           // Update global min and max for each key
@@ -257,23 +321,25 @@ const LineUpSelection = (function () {
           }
         }
       }
-
+      const hierarchy = createHierarchyFromPermutations(infras);
+      
       // Use Object.keys to iterate over datasets
       if (window.datasets && typeof window.datasets === "object") {
         for (const dataset of Object.keys(window.datasets)) {
           arr.push({
-            name: dataset,
+            name: "Policy " +dataset.split("_")[1],
             Objective_1: window.datasets[dataset].results["O_REL"],
             Objective_2: window.datasets[dataset].results["O_RF"],
             Objective_3: window.datasets[dataset].results["O_NPC"],
             Objective_4: window.datasets[dataset].results["O_PFC"],
             Objective_5: window.datasets[dataset].results["O_WCC"],
             Objective_6: window.datasets[dataset].results["O_UC"],
+            hierarchical: rootSymbol+" → "+window.datasets[dataset].flow, // Ensure no extra spaces around the flow
           });
         }
       } else {
         console.error("window.datasets is not a valid object.");
-      }
+      } 
 
       // Ensure the container exists for LineUpJS visualization
       const lineupContainer = document.getElementById("lineupVisualization");
@@ -283,7 +349,7 @@ const LineUpSelection = (function () {
         const builder = LineUpJS.builder(arr);
         // Define columns dynamically
         builder
-          .column(LineUpJS.buildStringColumn("name").label("Path").width(67))
+          .column(LineUpJS.buildStringColumn("name").label("Policy").width(75))
           .column(LineUpJS.buildNumberColumn("Objective_1", [globalMinMax["O_REL"].min, globalMinMax["O_REL"].max]).label("Reliability").color("blue"))
           .column(
             LineUpJS.buildNumberColumn("Objective_2", [globalMinMax["O_RF"].min, globalMinMax["O_RF"].max])
@@ -306,7 +372,11 @@ const LineUpSelection = (function () {
               .color("purple")
               .width(155)
           )
-          .column(LineUpJS.buildNumberColumn("Objective_6", [globalMinMax["O_UC"].min, globalMinMax["O_UC"].max]).label("Unit Cost").color("magenta"));
+          .column(LineUpJS.buildNumberColumn("Objective_6", [globalMinMax["O_UC"].min, globalMinMax["O_UC"].max]).label("Unit Cost").color("magenta"))
+          .column(
+            LineUpJS.buildHierarchicalColumn("hierarchical", hierarchy)
+              .label("Hierarchical")
+          );
 
         // Define ranking
         const ranking = LineUpJS.buildRanking().sortBy("name", "asc"); // Sort rows by 'name' in ascending order
@@ -315,19 +385,15 @@ const LineUpSelection = (function () {
         builder.defaultRanking(ranking);
 
         // Build LineUp visualization
-        const lineup = builder.buildTaggle(lineupContainer);
-        
+        const lineup = builder.build(lineupContainer);
         // Listen to selection events
         lineup.on("selectionChanged", (selectedIndices) => {
-          console.log(selectedIndices);
-          let selectedIds = []
+          let selectedIds = [];
           if (selectedIndices.length > 0) {
-            selectedIndices.forEach(selected =>{
-              selectedIds.push(arr[selected].name);
-            })
-            console.log(selectedIds);
-            
-            const selectedRow = arr[selectedIndices[0]];        
+            selectedIndices.forEach((selected) => {
+              selectedIds.push("Path_"+arr[selected].name.split(" ")[1]);
+            });
+            const selectedRow = arr[selectedIndices[0]];
             const selectedValue = $("#datasetDropDown").val();
             datasetSelection.currentId = selectedRow.name;
             datasetSelection.refresh(selectedIds, selectedValue);
