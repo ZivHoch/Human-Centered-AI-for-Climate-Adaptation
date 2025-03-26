@@ -2770,30 +2770,29 @@
                 const header = document.querySelector(".le-header");
                 const thead = header.querySelector(".le-thead");
                 var numColumn = thead.childNodes.length - 4;
-                if (numColumn < 0){
+                if (numColumn < 0) {
                   numColumn = 6;
                 }
-                
+
                 // Calculate the available width for columns
                 const containerWidth = header.offsetWidth - 250; // 209
-                
+
                 // Subtract any potential padding, margins, or borders (if applicable)
                 const totalSpacing = 10 * numColumn; // Adjust based on your spacing between columns
-                const availableWidth = containerWidth;// - totalSpacing;
+                const availableWidth = containerWidth; // - totalSpacing;
                 // Set minimum width for each column
                 var minWidth = Math.floor(availableWidth / numColumn);
-                
-                
+
                 switch (this.uid) {
-                  case "col0"://Aggregated Groups
+                  case "col0": //Aggregated Groups
                     return 29;
-                  case "col1"://ID or Ranks
+                  case "col1": //ID or Ranks
                     return 50;
-                  case "col2":// Select
+                  case "col2": // Select
                     return 20;
-                  case "col3":// Name
-                    return this.width
-                  default: // Rest of the rows    
+                  case "col3": // Name
+                    return this.width;
+                  default: // Rest of the rows
                     return Math.max(minWidth, this.width);
                 }
               }),
