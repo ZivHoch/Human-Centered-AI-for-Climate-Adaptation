@@ -1,3 +1,4 @@
+
 window.onload = function () {
   datasetSelection.init();
   selectionPanel.init();
@@ -8,28 +9,6 @@ const datasetSelection = (function () {
   return {
     currentLoadedDatasetIndex: 0,
     currentId: "",
-
-
-
-
-    // lineup.on("selectionChanged", (selectedIndices) => {
-    //   let selectedIds = [];
-    //   if (selectedIndices.length > 0) {
-    //     selectedIndices.forEach((selected) => {
-    //       selectedIds.push("Path_"+arr[selected].name.split(" ")[1]);
-    //     });
-    //     const selectedRow = arr[selectedIndices[0]];
-    //     const selectedValue = $("#datasetDropDown").val();
-    //     datasetSelection.currentId = selectedRow.name;
-    //     datasetSelection.refresh(selectedIds, selectedValue);
-    //   } else {
-    //     console.log("No dataset selected.");
-    //   }
-
-
-
-
-
 
     init: function () {
       this.currentLoadedDatasetIndex = 0;
@@ -427,6 +406,7 @@ const LineUpSelection = (function () {
 
         // Build LineUp visualization
         const lineup = builder.build(lineupContainer);
+        
         // Listen to selection events
         lineup.on("selectionChanged", (selectedIndices) => {
           let selectedIds = [];
@@ -442,9 +422,13 @@ const LineUpSelection = (function () {
             console.log("No dataset selected.");
           }
         });
+
       } else {
         console.error("LineUpJS container not found.");
       }
     },
   };
 })();
+
+
+// Run this every second
