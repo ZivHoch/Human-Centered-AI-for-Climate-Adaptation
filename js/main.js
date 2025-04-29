@@ -9,6 +9,28 @@ const datasetSelection = (function () {
     currentLoadedDatasetIndex: 0,
     currentId: "",
 
+
+
+
+    // lineup.on("selectionChanged", (selectedIndices) => {
+    //   let selectedIds = [];
+    //   if (selectedIndices.length > 0) {
+    //     selectedIndices.forEach((selected) => {
+    //       selectedIds.push("Path_"+arr[selected].name.split(" ")[1]);
+    //     });
+    //     const selectedRow = arr[selectedIndices[0]];
+    //     const selectedValue = $("#datasetDropDown").val();
+    //     datasetSelection.currentId = selectedRow.name;
+    //     datasetSelection.refresh(selectedIds, selectedValue);
+    //   } else {
+    //     console.log("No dataset selected.");
+    //   }
+
+
+
+
+
+
     init: function () {
       this.currentLoadedDatasetIndex = 0;
       this.currentId = Object.keys(window.datasets)[0];
@@ -25,7 +47,10 @@ const datasetSelection = (function () {
       }
       datasetDropDown.on("change", (e) => {
         const selectedValue = e.target.value; // Access the selected value
-        this.refresh([this.currentId], selectedValue);
+        console.log("selected Value", selectedValue, [this.currentId]);
+
+        
+        this.refresh(this.currentId, selectedValue);
       });
 
       this.refresh([this.currentId], 4);
@@ -36,6 +61,7 @@ const datasetSelection = (function () {
     },
 
     refresh: function (id, ver) {
+      this.currentId = id
       visObject = DynaSet().loadHarcodedDatasetFromJavascriptObject(id, ver);
       selectionPanel.init();
       document.querySelector("#countA").textContent = ": 0";
