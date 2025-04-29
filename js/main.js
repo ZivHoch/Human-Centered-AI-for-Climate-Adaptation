@@ -275,13 +275,13 @@ const LineUpSelection = (function () {
 
             childNode = {
               name: current,
-              color: generateColor(current), // Optional color logic
+              // color: generateColor(current), // Optional color logic
               children: [],
             };
             node.children.push(childNode);
             childNode2 = {
               name: current,
-              color: generateColor(current), // Optional color logic
+              // color: generateColor(current), // Optional color logic
             };
             node.children.push(childNode2);
           }
@@ -299,7 +299,21 @@ const LineUpSelection = (function () {
         const colors = ['blue', 'red', 'green', 'yellow', 'purple'];
         return colors[parseInt(name, 10) % colors.length];
       }
+      // function generateColorForHierarchy(name, layer) {
+      //   const baseColors = ['blue', 'red', 'green', 'yellow', 'purple', 'orange', 'cyan', 'pink', 'brown', 'lime'];
       
+      //   function hash(input) {
+      //     let hashValue = 0;
+      //     for (let i = 0; i < input.length; i++) {
+      //       hashValue = (hashValue * 31 + input.charCodeAt(i)) % baseColors.length;
+      //     }
+      //     return hashValue;
+      //   }
+      
+      //   const key = `${name}-${layer}`;
+      //   const colorIndex = hash(key);
+      //   return baseColors[colorIndex];
+      // }
       
       let infras = []
       // Iterate over each path in the data
@@ -376,7 +390,8 @@ const LineUpSelection = (function () {
           .column(
             LineUpJS.buildHierarchicalColumn("hierarchical", hierarchy)
               .label("Hierarchical")
-          );
+          ).rowHeight(50, 2)
+          .groupRowHeight(100, 5);
 
         // Define ranking
         const ranking = LineUpJS.buildRanking().sortBy("name", "asc"); // Sort rows by 'name' in ascending order
