@@ -406,9 +406,10 @@ const LineUpSelection = (function () {
 
         // Build LineUp visualization
         const lineup = builder.build(lineupContainer);
-        
         // Listen to selection events
         lineup.on("selectionChanged", (selectedIndices) => {
+          console.log(lineup);
+          
           let selectedIds = [];
           if (selectedIndices.length > 0) {
             selectedIndices.forEach((selected) => {
@@ -422,7 +423,19 @@ const LineUpSelection = (function () {
             console.log("No dataset selected.");
           }
         });
-
+        let lastIndex = null;
+        
+        setInterval(() => { // probably need to change this
+          const current = lineup.renderer.selectionIndicator.data?.[0]?.dataIndex;
+          if (current !== undefined && current !== lastIndex) {
+            console.log(current);
+            
+            lastIndex = current;
+            const selectedValue = $("#datasetDropDown").val();
+            datasetSelection.currentId = "Path_"+arr[lastIndex].name.split(" ")[1];
+            datasetSelection.refresh(["Path_"+arr[lastIndex].name.split(" ")[1]], selectedValue);
+          }
+        }, 200); // if the performance is not good change this to higher level
       } else {
         console.error("LineUpJS container not found.");
       }
