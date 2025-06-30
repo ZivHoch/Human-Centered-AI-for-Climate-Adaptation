@@ -1,7 +1,15 @@
+// const glyphMap = {
+//   9: "🌱",
+//   12: "🔗",
+//   20: `🌊`,
+// };
 const glyphMap = {
-  9: "🌱",
-  12: "🔗",
-  20: `🌊`,
+  4: "🌊 / 🏞️",
+  7: "➕🌊 / 🏗️",
+  8: "➕🌊🌊",
+  9: "♻️💧",
+  10: `♻️💧💧`,
+  1: "➕",
 };
 function glyphify(step) {
   step = step.trim();
@@ -374,7 +382,7 @@ const LineUpSelection = (function () {
         .column(
           LineUpJS.buildNumberColumn("Objective_5", [globalMinMax.O_WCC.min, globalMinMax.O_WCC.max]).label("Worst Case Costs").color("purple").width(155)
         )
-        .column(LineUpJS.buildNumberColumn("Objective_6", [globalMinMax.O_UC.min, globalMinMax.O_UC.max]).label("Unit Cost").color("magenta"))
+        // .column(LineUpJS.buildNumberColumn("Objective_6", [globalMinMax.O_UC.min, globalMinMax.O_UC.max]).label("Unit Cost").color("magenta"))
         .column(LineUpJS.buildHierarchicalColumn("hierarchical", hierarchy).label("Hierarchical"))
         .rowHeight(50, 2)
         .groupRowHeight(100, 5);

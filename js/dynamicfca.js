@@ -1,8 +1,16 @@
 function DynaSet() {
+  // const glyphMap = {
+  //   9: "🌱",
+  //   12: "🔗",
+  //   20: `🌊`,
+  // };
   const glyphMap = {
-    9: "🌱",
-    12: "🔗",
-    20: `🌊`,
+    4: "🌊 / 🏞️",
+    7: "➕🌊 / 🏗️",
+    8: "➕🌊🌊",
+    9: "♻️💧",
+    10: `♻️💧💧`,
+    1: "➕",
   };
   function glyphify(step) {
     step = step.trim();
@@ -1383,7 +1391,8 @@ function DynaSet() {
           cursor: "pointer",
         })
         .text(glyphify(setName))
-        // .attr("transform", "rotate(-50," + (x + 12) + "," + fixedY + ")")
+        .attr("transform", "rotate(-50," + (x + 12) + "," + fixedY + ")")
+
         //left table
         .on("click", function () {
           var setid = parseInt(d3.select(this).attr("setid"));
