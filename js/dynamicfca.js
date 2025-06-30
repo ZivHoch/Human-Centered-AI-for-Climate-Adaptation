@@ -1,4 +1,13 @@
 function DynaSet() {
+  const glyphMap = {
+    9: "🌱",
+    12: "🔗",
+    20: `🌊`,
+  };
+  function glyphify(step) {
+    step = step.trim();
+    return glyphMap[step] || step;
+  }
   // User interface parameters.
   guiParams = {
     shape: "circle", // "square" or "circle" --square shape has problems in diff view
@@ -98,6 +107,7 @@ function DynaSet() {
         });
         // (Re)construct the UI.
         createCopyOfFullName(aggregatedLattice);
+
         window.allConceptNames = conceptNames(aggregatedLattice);
         // window.allConceptHashs = Object.keys(aggregatedLattice.concepts);
         window.numberOftimesteps = lattices.length;
@@ -123,6 +133,8 @@ function DynaSet() {
         d3.select("#datasetInformation").html(window.datasets[datasetId[0]].description);
 
         window.numSets = degreeDictionary["1"].length;
+        console.log(degreeDictionary["1"]);
+
         window.degreesAggregated = [-1];
         for (var i = 1; i <= numSets; i++) window.degreesAggregated.push(0);
 
@@ -1215,6 +1227,7 @@ function DynaSet() {
     // console.log(numSets, blockSize, paddingBetweenBlocks, leftSpaceForDegreeGroup, marginBeforeAndAfterText);
     for (var deg in degreeDictionary) {
       deg = parseInt(deg);
+
       var verticalPositionOfksetRow = 0;
       for (var previousDegree = 1; previousDegree < deg; previousDegree++) {
         var rowsInTheDegree = degreeDictionary[previousDegree].length;
@@ -1361,16 +1374,16 @@ function DynaSet() {
       rowLegend
         .append("text")
         .attr({
-          x: x + 12,
+          x: x, // + 12,
           // "y": y + 10,
           // "x": x + blockSize/2,
-          y: fixedY - 5,
+          y: fixedY - 10, //- 5,
           "dominant-baseline": "middle",
           setid: setHash,
           cursor: "pointer",
         })
-        .text(setName)
-        .attr("transform", "rotate(-50," + (x + 12) + "," + fixedY + ")")
+        .text(glyphify(setName))
+        // .attr("transform", "rotate(-50," + (x + 12) + "," + fixedY + ")")
         //left table
         .on("click", function () {
           var setid = parseInt(d3.select(this).attr("setid"));
@@ -1516,7 +1529,7 @@ function DynaSet() {
               highlightRectsBasedOnPosition(x, y);
             })
             .append("title")
-            .text(posToNameForBaseSetsDictionary[i + 1]);
+            .text(glyphify(posToNameForBaseSetsDictionary[i + 1]));
 
           if (start >= 0 && start <= numSets && end >= 0 && end <= numSets && start <= end) {
             rowLegend.append("line").attr({
@@ -1712,20 +1725,20 @@ function DynaSet() {
               finalInfraName = "s "; // Indicating multiple infra names
               infraNameArr.forEach((infra, index) => {
                 if (index === 0) {
-                  finalInfraName += "#" + String(infra); // First element
+                  finalInfraName += "" + String(infra); // First element
                 } else {
-                  finalInfraName += " or #" + String(infra); // Subsequent elements
+                  finalInfraName += " or " + String(infra); // Subsequent elements
                 }
               });
             } else if (infraNameArr.length === 1) {
-              finalInfraName = " #" + String(infraNameArr[0]); // Single infrastructure name
+              finalInfraName = " " + String(infraNameArr[0]); // Single infrastructure name
             }
 
             // Determine singular/plural based on the count
             var simulationText = count === 1 ? "simulation" : "simulations";
 
             // Return the formatted string with the count and infrastructure name
-            return `${count} ${simulationText} activated infrastructure${finalInfraName}`;
+            return `${count} ${simulationText} activated infrastructure${glyphify(finalInfraName)}`;
           });
       }
       degreeDistributionRow.append("rect").attr({
@@ -2442,7 +2455,7 @@ function DynaSet() {
     for (var i = 0; i < numSets; i++) {
       const setName = posToNameForBaseSetsDictionary[i + 1];
       members.push({
-        label: "Prioritize: " + setName,
+        label: "Prioritize: " + glyphify(setName),
         value: "priority" + setNameToHashDictionary[setName],
         setid: setNameToHashDictionary[setName],
       });
@@ -2961,6 +2974,7 @@ function DynaSet() {
           .text(function () {
             if (datasetSelection.currentId === "image") {
               var t = window.allObjectsInfo[d].name;
+
               var pos = t.lastIndexOf("/") + 1;
               return t.substring(pos).substring(0, 30);
             } else return allObjectsInfo[d].name;

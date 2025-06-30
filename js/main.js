@@ -1,4 +1,12 @@
-
+const glyphMap = {
+  9: "🌱",
+  12: "🔗",
+  20: `🌊`,
+};
+function glyphify(step) {
+  step = step.trim();
+  return glyphMap[step] || step;
+}
 window.onload = function () {
   datasetSelection.init();
   selectionPanel.init();
@@ -28,7 +36,6 @@ const datasetSelection = (function () {
         const selectedValue = e.target.value; // Access the selected value
         console.log("selected Value", selectedValue, [this.currentId]);
 
-        
         this.refresh(this.currentId, selectedValue);
       });
 
@@ -40,7 +47,7 @@ const datasetSelection = (function () {
     },
 
     refresh: function (id, ver) {
-      this.currentId = id
+      this.currentId = id;
       visObject = DynaSet().loadHarcodedDatasetFromJavascriptObject(id, ver);
       selectionPanel.init();
       document.querySelector("#countA").textContent = ": 0";
@@ -108,7 +115,7 @@ const selectionPanel = (function () {
     visObject.getBaseSetNames().forEach(([id, name], i) => {
       s += `<span class="setCheckbox">
                 <input type="checkbox" value="${name}" id="checkbox${group}${id}">
-                <label for="checkbox${group}${id}">${name}</label>
+                <label for="checkbox${group}${id}">${glyphify(name)}</label>
               </input>
               </span>`;
     });
@@ -246,9 +253,11 @@ const LineUpSelection = (function () {
   return {
     init: function () {
       const rootSymbol = "┇";
+
       const arr = [];
       const globalMinMax = {};
 
+      // — your permutation helper —
       function getPermutations(array) {
         if (array.length === 0) return [[]];
         const result = [];
@@ -259,189 +268,151 @@ const LineUpSelection = (function () {
         });
         return result;
       }
-      
+
+      // — the original createHierarchyFromPermutations, updated to glyphify every name —
       function createHierarchyFromPermutations(array) {
         const permutations = getPermutations(array);
-      
+
         const root = {
-          name: rootSymbol,
-          color: 'black',
+          name: glyphify(rootSymbol),
+          color: "black",
           children: [],
         };
-      
+
         function addToHierarchy(node, path) {
           if (path.length === 0) return;
-      
-          const [current, ...rest] = path;
-      
-          let childNode = node.children.find((child) => child.name === current);
-      
-          if (!childNode) {
 
+          // glyphify this step
+          const [current, ...rest] = path;
+          const label = glyphify(current);
+
+          let childNode = node.children.find((child) => child.name === label);
+
+          if (!childNode) {
             childNode = {
-              name: current,
-              // color: generateColor(current), // Optional color logic
+              name: label,
               children: [],
             };
             node.children.push(childNode);
-            childNode2 = {
-              name: current,
-              // color: generateColor(current), // Optional color logic
+
+            // preserve your original duplicate child
+            const childNode2 = {
+              name: label,
             };
             node.children.push(childNode2);
           }
-      
+
           addToHierarchy(childNode, rest);
         }
-      
+
         permutations.forEach((perm) => addToHierarchy(root, perm));
-      
+
         return root;
       }
-      
-      // Optional: Generate a color for each node
-      function generateColor(name) {
-        const colors = ['blue', 'red', 'green', 'yellow', 'purple'];
-        return colors[parseInt(name, 10) % colors.length];
-      }
-      // function generateColorForHierarchy(name, layer) {
-      //   const baseColors = ['blue', 'red', 'green', 'yellow', 'purple', 'orange', 'cyan', 'pink', 'brown', 'lime'];
-      
-      //   function hash(input) {
-      //     let hashValue = 0;
-      //     for (let i = 0; i < input.length; i++) {
-      //       hashValue = (hashValue * 31 + input.charCodeAt(i)) % baseColors.length;
-      //     }
-      //     return hashValue;
-      //   }
-      
-      //   const key = `${name}-${layer}`;
-      //   const colorIndex = hash(key);
-      //   return baseColors[colorIndex];
-      // }
-      
-      let infras = []
-      // Iterate over each path in the data
-      for (const path in window.datasets) {
-        const results = window.datasets[path].results;
-        let curInfras = window.datasets[path].flow.split(" → ");
-        if (curInfras.length > infras.length){
-          infras = curInfras;
-        }
-        
-        for (const key in results) {
-          const value = results[key];
-          // Update global min and max for each key
-          if (!globalMinMax[key]) {
-            globalMinMax[key] = { min: value, max: value };
+
+      // — 1) Find the longest raw flow & compute global min/max —
+      let infras = [];
+      for (const key in window.datasets) {
+        const ds = window.datasets[key];
+        const parts = ds.flow.split(" → ");
+        if (parts.length > infras.length) infras = parts;
+
+        for (const obj in ds.results) {
+          const v = ds.results[obj];
+          if (!globalMinMax[obj]) {
+            globalMinMax[obj] = { min: v, max: v };
           } else {
-            globalMinMax[key].min = Math.min(globalMinMax[key].min, value);
-            globalMinMax[key].max = Math.max(globalMinMax[key].max, value);
+            globalMinMax[obj].min = Math.min(globalMinMax[obj].min, v);
+            globalMinMax[obj].max = Math.max(globalMinMax[obj].max, v);
           }
         }
       }
-      const hierarchy = createHierarchyFromPermutations(infras);
-      
-      // Use Object.keys to iterate over datasets
+
+      // — 2) Glyph‐ify the longest flow before permuting —
+      const glyphifiedInfras = infras.map(glyphify);
+      const hierarchy = createHierarchyFromPermutations(glyphifiedInfras);
+
+      // — 3) Build data array, glyphifying displayed flow —
       if (window.datasets && typeof window.datasets === "object") {
-        for (const dataset of Object.keys(window.datasets)) {
+        for (const dsKey of Object.keys(window.datasets)) {
+          const ds = window.datasets[dsKey];
+          const updatedFlow = ds.flow.split(" → ").map(glyphify).join(" → ");
+
           arr.push({
-            name: "Policy " +dataset.split("_")[1],
-            Objective_1: window.datasets[dataset].results["O_REL"],
-            Objective_2: window.datasets[dataset].results["O_RF"],
-            Objective_3: window.datasets[dataset].results["O_NPC"],
-            Objective_4: window.datasets[dataset].results["O_PFC"],
-            Objective_5: window.datasets[dataset].results["O_WCC"],
-            Objective_6: window.datasets[dataset].results["O_UC"],
-            hierarchical: rootSymbol+" → "+window.datasets[dataset].flow, // Ensure no extra spaces around the flow
+            name: `Policy ${dsKey.split("_")[1]}`,
+            Objective_1: ds.results.O_REL,
+            Objective_2: ds.results.O_RF,
+            Objective_3: ds.results.O_NPC,
+            Objective_4: ds.results.O_PFC,
+            Objective_5: ds.results.O_WCC,
+            Objective_6: ds.results.O_UC,
+            hierarchical: `${rootSymbol} → ${updatedFlow}`,
           });
         }
       } else {
         console.error("window.datasets is not a valid object.");
-      } 
-
-      // Ensure the container exists for LineUpJS visualization
-      const lineupContainer = document.getElementById("lineupVisualization");
-
-      if (lineupContainer) {
-        // Create LineUpJS builder
-        const builder = LineUpJS.builder(arr);
-        // Define columns dynamically
-        builder
-          .column(LineUpJS.buildStringColumn("name").label("Policy").width(75))
-          .column(LineUpJS.buildNumberColumn("Objective_1", [globalMinMax["O_REL"].min, globalMinMax["O_REL"].max]).label("Reliability").color("blue"))
-          .column(
-            LineUpJS.buildNumberColumn("Objective_2", [globalMinMax["O_RF"].min, globalMinMax["O_RF"].max])
-              .label("Restriction Frequency")
-              .color("green")
-              .width(181)
-          )
-          .column(
-            LineUpJS.buildNumberColumn("Objective_3", [globalMinMax["O_NPC"].min, globalMinMax["O_NPC"].max]).label("Net Present Cost").color("red").width(168)
-          )
-          .column(
-            LineUpJS.buildNumberColumn("Objective_4", [globalMinMax["O_PFC"].min, globalMinMax["O_PFC"].max])
-              .label("Peak Financial Cost")
-              .color("orange")
-              .width(173)
-          )
-          .column(
-            LineUpJS.buildNumberColumn("Objective_5", [globalMinMax["O_WCC"].min, globalMinMax["O_WCC"].max])
-              .label("Worst Case Costs")
-              .color("purple")
-              .width(155)
-          )
-          .column(LineUpJS.buildNumberColumn("Objective_6", [globalMinMax["O_UC"].min, globalMinMax["O_UC"].max]).label("Unit Cost").color("magenta"))
-          .column(
-            LineUpJS.buildHierarchicalColumn("hierarchical", hierarchy)
-              .label("Hierarchical")
-          ).rowHeight(50, 2)
-          .groupRowHeight(100, 5);
-
-        // Define ranking
-        const ranking = LineUpJS.buildRanking().sortBy("name", "asc"); // Sort rows by 'name' in ascending order
-
-        // Set default ranking
-        builder.defaultRanking(ranking);
-
-        // Build LineUp visualization
-        const lineup = builder.build(lineupContainer);
-        // Listen to selection events
-        lineup.on("selectionChanged", (selectedIndices) => {
-          console.log(lineup);
-          
-          let selectedIds = [];
-          if (selectedIndices.length > 0) {
-            selectedIndices.forEach((selected) => {
-              selectedIds.push("Path_"+arr[selected].name.split(" ")[1]);
-            });
-            const selectedRow = arr[selectedIndices[0]];
-            const selectedValue = $("#datasetDropDown").val();
-            datasetSelection.currentId = selectedRow.name;
-            datasetSelection.refresh(selectedIds, selectedValue);
-          } else {
-            console.log("No dataset selected.");
-          }
-        });
-        let lastIndex = null;
-        
-        setInterval(() => { // probably need to change this
-          const current = lineup.renderer.selectionIndicator.data?.[0]?.dataIndex;
-          if (current !== undefined && current !== lastIndex) {
-            console.log(current);
-            
-            lastIndex = current;
-            const selectedValue = $("#datasetDropDown").val();
-            datasetSelection.currentId = "Path_"+arr[lastIndex].name.split(" ")[1];
-            datasetSelection.refresh(["Path_"+arr[lastIndex].name.split(" ")[1]], selectedValue);
-          }
-        }, 200); // if the performance is not good change this to higher level
-      } else {
-        console.error("LineUpJS container not found.");
+        return;
       }
+
+      // — 4) Initialize LineUpJS with all six objectives + hierarchical glyph tree —
+      const container = document.getElementById("lineupVisualization");
+      if (!container) {
+        console.error("LineUpJS container not found.");
+        return;
+      }
+
+      const builder = LineUpJS.builder(arr)
+        .column(LineUpJS.buildStringColumn("name").label("Policy").width(75))
+        .column(LineUpJS.buildNumberColumn("Objective_1", [globalMinMax.O_REL.min, globalMinMax.O_REL.max]).label("Reliability").color("blue"))
+        .column(
+          LineUpJS.buildNumberColumn("Objective_2", [globalMinMax.O_RF.min, globalMinMax.O_RF.max]).label("Restriction Frequency").color("green").width(180)
+        )
+        .column(LineUpJS.buildNumberColumn("Objective_3", [globalMinMax.O_NPC.min, globalMinMax.O_NPC.max]).label("Net Present Cost").color("red").width(170))
+        .column(
+          LineUpJS.buildNumberColumn("Objective_4", [globalMinMax.O_PFC.min, globalMinMax.O_PFC.max]).label("Peak Financial Cost").color("orange").width(170)
+        )
+        .column(
+          LineUpJS.buildNumberColumn("Objective_5", [globalMinMax.O_WCC.min, globalMinMax.O_WCC.max]).label("Worst Case Costs").color("purple").width(155)
+        )
+        .column(LineUpJS.buildNumberColumn("Objective_6", [globalMinMax.O_UC.min, globalMinMax.O_UC.max]).label("Unit Cost").color("magenta"))
+        .column(LineUpJS.buildHierarchicalColumn("hierarchical", hierarchy).label("Hierarchical"))
+        .rowHeight(50, 2)
+        .groupRowHeight(100, 5);
+
+      const ranking = LineUpJS.buildRanking().sortBy("name", "asc");
+      builder.defaultRanking(ranking);
+
+      const lineup = builder.build(container);
+
+      // — 5) Your original selection logic, unchanged —
+      lineup.on("selectionChanged", (selectedIndices) => {
+        console.log(lineup);
+
+        let selectedIds = [];
+        if (selectedIndices.length > 0) {
+          selectedIndices.forEach((selected) => {
+            selectedIds.push("Path_" + arr[selected].name.split(" ")[1]);
+          });
+          const selectedRow = arr[selectedIndices[0]];
+          const selectedValue = $("#datasetDropDown").val();
+          datasetSelection.currentId = selectedRow.name;
+          datasetSelection.refresh(selectedIds, selectedValue);
+        } else {
+          console.log("No dataset selected.");
+        }
+      });
+
+      let lastIndex = null;
+      setInterval(() => {
+        const current = lineup.renderer.selectionIndicator.data?.[0]?.dataIndex;
+        if (current !== undefined && current !== lastIndex) {
+          console.log(current);
+          lastIndex = current;
+          const selectedValue = $("#datasetDropDown").val();
+          datasetSelection.currentId = "Path_" + arr[lastIndex].name.split(" ")[1];
+          datasetSelection.refresh(["Path_" + arr[lastIndex].name.split(" ")[1]], selectedValue);
+        }
+      }, 200);
     },
   };
 })();
-
-
-// Run this every second
