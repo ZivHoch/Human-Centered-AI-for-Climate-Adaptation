@@ -1,0 +1,186 @@
+/* --- HEADER WRAPPER --- */
+#header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  background: #fafbfc;
+  border-bottom: 1px solid #e1e4e8;
+  font-family: Arial, sans-serif;
+}
+
+/* --- LOGO & TITLE --- */
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #24292e;
+  line-height: 1.2;
+}
+
+/* --- CONTROLS --- */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.controls label {
+  font-size: 1.1rem;
+  color: #24292e;
+  font-weight: 500;
+}
+
+.controls select {
+  padding: 0.35rem 0.6rem;
+  font-size: 1.1rem;
+  border: 1px solid #d1d5da;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.controls .icon-info-sign {
+  font-size: 1.3rem;
+  color: #57606a;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.controls .icon-info-sign:hover {
+  color: #24292e;
+}
+
+/* --- GITHUB-STYLE STATS BAR --- */
+.gh-stats {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+.gh-stats li {
+  display: flex;
+}
+
+.gh-stats .stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* large number */
+.gh-stats .count {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #24292e;
+}
+
+/* small uppercase label */
+.gh-stats .label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #6a737d;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* hover highlight (optional) */
+.gh-stats li:hover .count {
+  color: #0366d6;
+}
+.gh-stats li:hover .label {
+  color: #0366d6;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  #header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+/* Style the label */
+.controls > label {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #24292e;
+  white-space: nowrap;
+}
+
+/* Group select + button */
+.input-group {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* The dropdown */
+.input-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem; /* room for arrow + icon */
+  font-size: 1.2rem;
+  border: 1px solid #d1d5da;
+  border-radius: 4px;
+  background: #fff
+    url("data:image/svg+xml;charset=UTF-8,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6' stroke='%236a737d' stroke-width='1.5' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E")
+    no-repeat right 0.75rem center;
+  background-size: 10px 6px;
+  cursor: pointer;
+}
+
+/* Hide default arrow in IE */
+.input-group select::-ms-expand {
+  display: none;
+}
+
+/* Info button overlayed on the right */
+.input-group .info-btn {
+  position: absolute;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #57606a;
+  transition: color 0.2s;
+}
+
+.input-group .info-btn:hover,
+.input-group .info-btn:focus {
+  color: #24292e;
+  outline: none;
+}
+
+/* Optional: focus states */
+.input-group select:focus {
+  border-color: #0366d6;
+  box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.3);
+  outline: none;
+}

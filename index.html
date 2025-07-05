@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Set Streams</title>
-    <link rel="icon" href="./favicon.png" />
+    <title>I-DEAP</title>
+    <link rel="icon" href="images/logo.png" />
 
     <!-- CSS imports -->
     <link rel="stylesheet" href="css/LineUpJS.css" />
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link href="fonts/opensans.css" rel="stylesheet" type="text/css" />
-
+    <link rel="stylesheet" href="css/headerstyle.css" />
     <!-- JavaScript imports -->
     <script src="js/d3.js" charset="utf-8"></script>
     <script src="js/d3.tip.js" charset="utf-8"></script>
@@ -29,6 +29,7 @@
     <script src="js/main.js"></script>
     <script src="js/dynamicfca.js"></script>
     <script src="js/LineUpJS.js"></script>
+
     <!-- Inline styles -->
     <style>
       .pageLinks {
@@ -70,33 +71,50 @@
     <div id="main">
       <div id="leftPanel">
         <div id="header">
-          <!-- <a href="tutorial.html" class="pageLinks" target="_blank"> <span class="glyphicon glyphicon-blackboard"></span>Tutorial </a> -->
-          <div id="title" class="pageLinks">
-            <img src="images/logo.png" alt="Streams logo" />
-            <span>Multi-Objective Visual Analytics to Develop Sustainable Adaptation Pathways</span>
+          <div class="logo-title">
+            <img src="images/logo.png" alt="Streams logo" class="logo" />
+            <h1 class="title">Multi-Objective Visual Analytics to Develop Sustainable Adaptation Pathways</h1>
           </div>
-          <div id="dataset">
-            <br />
-            <div>
-              <label>Select Number for the binning:</label>
-              <select id="datasetDropDown"></select>
-              <i class="icon icon-info-sign" title="Dataset information" onclick="datasetSelection.toggleDataSetInformation()"></i>
+
+          <ul class="dataset-stats gh-stats">
+            <li>
+              <div class="stat">
+                <span id="numSets" class="count"></span>
+                <span class="label">Infrastructures</span>
+              </div>
+            </li>
+            <li>
+              <div class="stat">
+                <span id="numObjects" class="count"></span>
+                <span class="label">Simulations</span>
+              </div>
+            </li>
+            <li>
+              <div class="stat">
+                <span id="numTimesteps" class="count"></span>
+                <span class="label">Timestamps</span>
+              </div>
+            </li>
+            <li>
+              <div class="stat">
+                <span id="numIntersections" class="count"></span>
+                <span class="label">Intersections</span>
+              </div>
+            </li>
+          </ul>
+          <div class="controls">
+            <label for="datasetDropDown">Select bin count:</label>
+            <div class="input-group">
+              <select id="datasetDropDown">
+                <option value="" disabled selected>Choose…</option>
+                <!-- your options -->
+              </select>
+              <button type="button" class="info-btn" title="Dataset information" onclick="datasetSelection.toggleDataSetInformation()">
+                <i class="icon icon-info-sign"></i>
+              </button>
             </div>
-            <div></div>
-          </div>
-          <div class="datasetStats">
-            <label>Dataset Statistics:</label>
-            <span class="stats"># Infrastructures = <span id="numSets"></span></span>
-            <span class="stats"># Simulations = <span id="numObjects"></span></span>
-            <span class="stats"># timestamps = <span id="numTimesteps"></span></span>
-            <span class="stats"># intersections = <span id="numIntersections"></span></span>
-            <span>
-              <!-- Agarwal, S. and Beck, F. (2020), Set Streams: Visual Exploration of Dynamic Overlapping Sets. Computer Graphics Forum, 39: 383-391. -->
-              <!-- <a href="https://s-agarwl.github.io/publication/Agarwal2020SetStreams">Details</a> -->
-            </span>
           </div>
         </div>
-
         <div id="selectionPanel">
           <div><label class="col">Selection:</label></div>
           <div id="selectionAB"><span class="groupLabel groupAB">Group A+B</span></div>
