@@ -1,57 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <title>I-DEAP</title>
-    <link rel="icon" href="images/logo.png" />
+  <meta charset="UTF-8" />
+  <title>I-DEAP – Interactive Climate Adaptation Tool</title>
 
-    <!-- CSS imports -->
-    <link rel="stylesheet" href="css/LineUpJS.css" />
-    <link rel="stylesheet" href="css/jquery-ui.css" />
-    <link rel="stylesheet" href="css/d3.tip.css" />
-    <link rel="stylesheet" href="css/material.min.css" />
-    <link rel="stylesheet" href="css/w3.css" />
-    <link rel="stylesheet" href="css/whhg.css" />
-    <link rel="stylesheet" href="css/style_largefont.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link href="fonts/opensans.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="css/headerstyle.css" />
-    <!-- JavaScript imports -->
-    <script src="js/d3.js" charset="utf-8"></script>
-    <script src="js/d3.tip.js" charset="utf-8"></script>
-    <script src="js/compatibility.js" charset="utf-8"></script>
-    <script src="js/jquery-1.12.4.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/datasets.js"></script>
-    <script src="js/svg-dropdown.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/dynamicfca.js"></script>
-    <script src="js/LineUpJS.js"></script>
+  <!-- Mobile / layout -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Inline styles -->
-    <style>
-      .pageLinks {
-        margin-left: 10px;
-        display: inline;
-      }
-      .form-control {
-        padding: 0px 12px;
-        margin-top: 4px;
-        margin-bottom: 4px;
-        height: 24px;
-        width: calc(100% - 30px);
-        display: inline-block;
-      }
-      /* section {
-        width: 150px !important;
-      }
-      main article div {
-        width: 150px;
-      } */
-    </style>
-  </head>
+  <!-- Basic description -->
+  <meta
+    name="description"
+    content="Interactive decision-support system combining multi-objective optimization, explainable AI, and visual analytics to explore sustainable climate adaptation pathways."
+  />
+
+  <!-- Open Graph (LinkedIn, Facebook, etc.) -->
+  <meta property="og:title" content="I-DEAP – Interactive Climate Adaptation Tool" />
+  <meta
+    property="og:description"
+    content="Visual analytics and explainable AI for exploring climate adaptation pathways using multi-objective optimization."
+  />
+  <meta property="og:type" content="website" />
+  <meta
+    property="og:url"
+    content="https://human-centered-ai-for-climate-adapt.vercel.app/"
+  />
+  <!-- IMPORTANT: use a full absolute URL here -->
+  <meta
+    property="og:image"
+    content="https://human-centered-ai-for-climate-adapt.vercel.app/images/og-image.jpg"
+  />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="I-DEAP – Interactive Climate Adaptation Tool" />
+  <meta
+    name="twitter:description"
+    content="Interactive decision-support for climate adaptation using multi-objective optimization, explainable AI, and visual analytics."
+  />
+  <meta
+    name="twitter:image"
+    content="https://human-centered-ai-for-climate-adapt.vercel.app/images/og-image.jpg"
+  />
+
+  <link rel="icon" href="images/logo.png" />
+
+  <!-- CSS imports -->
+  <link rel="stylesheet" href="css/LineUpJS.css" />
+  <link rel="stylesheet" href="css/jquery-ui.css" />
+  <link rel="stylesheet" href="css/d3.tip.css" />
+  <link rel="stylesheet" href="css/material.min.css" />
+  <link rel="stylesheet" href="css/w3.css" />
+  <link rel="stylesheet" href="css/whhg.css" />
+  <link rel="stylesheet" href="css/style_largefont.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link href="fonts/opensans.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="css/headerstyle.css" />
+
+  <!-- JavaScript imports -->
+  <script src="js/d3.js" charset="utf-8"></script>
+  <script src="js/d3.tip.js" charset="utf-8"></script>
+  <script src="js/compatibility.js" charset="utf-8"></script>
+  <script src="js/jquery-1.12.4.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/datasets.js"></script>
+  <script src="js/svg-dropdown.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dynamicfca.js"></script>
+  <script src="js/LineUpJS.js"></script>
+
+  <style>
+    .pageLinks {
+      margin-left: 10px;
+      display: inline;
+    }
+    .form-control {
+      padding: 0px 12px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      height: 24px;
+      width: calc(100% - 30px);
+      display: inline-block;
+    }
+  </style>
+</head>
 
   <body>
     <!-- Modal for dataset information -->
